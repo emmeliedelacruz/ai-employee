@@ -96,8 +96,9 @@ If they paste fewer than three samples: ask for at least one more before proceed
 Read references/voice-extraction.md now and follow the full extraction process for analyzing
 their samples and writing the skill.
 
-After building the skill, save it using the skill creator. Do not ask them to copy and paste
-anything. The skill creator handles saving.
+After building the skill, write the complete .md file. Have them save it into one master skills
+folder in their Google Drive, so every skill they ever build lives in one place as a single
+source of truth. This is the folder their AI employee's Project will link to at the workshop.
 
 ### Step 4: Test before confirming
 
@@ -109,11 +110,11 @@ Scenario 2: "Write a short message to a client explaining a one-week delay on th
 Show both outputs to the attendee. Ask: "Do these sound like you? If a client received either
 of these, would they think it came from you?"
 
-If they say yes to both: "Your voice skill is saved and ready. Bring this to the workshop and
-your facilitator will load it into your AI employee's Project on day one."
+If they say yes to both: "Your voice skill is saved in your master skills folder and ready. Bring
+this to the workshop and your facilitator will link it into your AI employee's Project on day one."
 
-If something is off: ask "What specifically does not sound right?" Update the skill using the
-skill creator and retest until both scenarios pass.
+If something is off: ask "What specifically does not sound right?" Update the skill, save the new
+version over the file in the master folder, and retest until both scenarios pass.
 
 ---
 
@@ -126,8 +127,9 @@ Once both parts are done, say:
 Google Drive is connected to Claude. Your AI employee will pull files from it automatically
 without you having to paste anything in.
 
-Your voice and tone skill is saved. The moment your Project is created at the workshop, this
-skill goes in and every output sounds like you from the first message.
+Your voice and tone skill is saved in your master skills folder in Google Drive. The moment your
+Project is created at the workshop, that folder gets linked in and every output sounds like you
+from the first message.
 
 On workshop day, open Claude and start a new conversation. Upload the main workshop skill file
 your facilitator shares with you and say: 'Start the workshop.' Your facilitator will take it
