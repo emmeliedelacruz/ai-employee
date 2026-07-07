@@ -20,9 +20,9 @@ employee inside Claude using Projects and Skills. By the end of this conversatio
 3. A tested, working agent ready to enter shadow mode today
 
 The AI employee does the work end to end. The human approves. That is the only manual step.
-Write everything for them. When a skill is final, write the complete .md file and have them save
-it into their one master skills folder in Google Drive, then link that folder into the Project.
-That folder is the single source of truth. Ask one to two questions at a time. Complete and test
+Write everything for them. When a skill is final, save it as an editable Google Doc in their one
+master skills folder in Google Drive, then add each skill to the Project by its Doc URL. That
+folder is the single source of truth. Ask one to two questions at a time. Complete and test
 each phase before moving to the next.
 
 Read references/pm-skill.md before building any PM or agency-related skill in Phase 3.
@@ -194,9 +194,10 @@ Walk them through creating the Project:
 3. "Click Project Instructions. Paste the system prompt we just wrote. Save it."
 4. "Click Add Content in the Project Knowledge section. Connect the Google Drive folders we
    identified as source material. Your employee pulls from these automatically."
-5. "Link your master skills folder from Google Drive into Project Knowledge. Your voice and tone
-   skill from prework already lives there, and every skill you build in Phase 3 gets saved there
-   too. Your employee references these automatically."
+5. "Add your skills to Project Knowledge. In the Project Knowledge section, add each skill Doc
+   from your master skills folder by pasting its Google Doc URL. Start with your voice and tone
+   skill from prework, then add each skill you build in Phase 3 the same way. Each Doc stays in
+   sync with Drive, so your employee always references the latest version."
 
 Confirm the Project is live before moving to Phase 2.
 
@@ -285,11 +286,11 @@ So work in a revision loop:
 3. When they give a revision, apply the change and REGENERATE the actual output so they can
    react to the new version. Repeat.
 4. Keep iterating on the output until they say they are happy with it.
-5. ONLY THEN write the full, final SKILL.md that reliably reproduces the approved output. Write
-   the complete .md file for them. Have them save it into their one master skills folder in Google
-   Drive, then confirm that folder is linked into the Project. Every skill lives in that one
-   folder as a single source of truth the whole team can use. Do not paste a skill straight into
-   the Project without the Drive copy, or versions will fork.
+5. ONLY THEN write the full, final skill that reliably reproduces the approved output. Create it
+   as an editable Google Doc in their one master skills folder in Google Drive, then add that Doc
+   to the Project by its URL (see "Skill file format and Project linking" below). Every skill lives
+   in that one folder as a single source of truth the whole team can use. Do not paste a skill
+   straight into the Project as chat text without the Drive copy, or versions will fork.
 
 Do not generate the final skill file mid-iteration. The skill is the last artifact, written to
 lock in an output they have already approved.
@@ -301,6 +302,26 @@ Structure the final skill with:
 - Decision rules and exceptions
 - What the finished output looks like
 - What never to do
+
+### Skill file format and Project linking
+
+Save each final skill as an editable Google Doc in the master skills folder, not a raw .md file.
+The folder is a living source of truth, so the file has to be something the attendee can open and
+edit directly later — a Doc can be edited in place, a .md file in Drive cannot. Claude reads Google
+Docs through the Drive connector, and a Doc added to a Project syncs automatically, so edits show up
+without re-uploading. Keep the skill's structure intact inside the Doc: name and trigger, purpose,
+steps, decision rules, and output format.
+
+Link skills into the Project per document, not by pointing at the folder. In the Project's knowledge
+panel, add each skill Doc by searching for it or pasting its URL; each stays in sync with Drive.
+There is no reliable "link the whole folder and Claude reads everything" for Project knowledge. For
+anything folder-wide — pulling or cross-checking every skill at once — rely on the live Drive
+connector inside a chat instead of expecting the Project to ingest the folder.
+
+The skill file is a deliverable, not a chat message. Once an output is approved, create the Doc in
+the master folder and hand over its link. Do not deliver the final skill as a block of text pasted
+into the conversation for the attendee to copy — that reintroduces the forking problem the master
+folder exists to prevent.
 
 ### Statefulness for recurring outputs
 
@@ -399,14 +420,15 @@ What is the first real situation you are going to hand them when you leave today
 - If they carve out an approval exception, rewrite the Hard Rules so the system prompt is
   self-consistent. Never leave a blanket no-ship rule next to a skill that autosends.
 - The human's only job is approving. If any step requires the human to do work, redesign it.
-- Write the full .md skill file for them. They save it into one master skills folder in Google
-  Drive, and that folder is linked into the Project. That folder is the single source of truth.
+- Write the full skill for them and deliver it as an editable Google Doc in their one master
+  skills folder in Google Drive, not a raw .md file and not chat text. Each skill Doc is added to
+  the Project by its URL and stays in sync with Drive. That folder is the single source of truth.
 - Reuse existing skills. Prefer thin orchestration skills that chain what they already have.
 - Verify a connector's real capability before building a skill that depends on it.
 - If a tool is not in the Connectors directory, read references/integrations.md and give exact steps.
 - Pull from Google Drive wherever possible. The human should never paste in information that
   already exists somewhere the employee can access.
-- Build every skill by iterating on the real output. Only write the final SKILL.md once the
+- Build every skill by iterating on the real output. Only create the final skill Doc once the
   person is happy with the output, then tell them what to do with the file.
 - For recurring outputs, build in a dedup step using the destination channel as the ledger.
 - A Claude Project cannot self-schedule. Recurring runs need Claude Cowork /schedule or Claude
