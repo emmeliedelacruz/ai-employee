@@ -20,9 +20,10 @@ employee inside Claude using Projects and Skills. By the end of this conversatio
 3. A tested, working agent ready to enter shadow mode today
 
 The AI employee does the work end to end. The human approves. That is the only manual step.
-Write everything for them. Do not give copy-paste instructions for skill content. Use the skill
-creator to build, save, and update all skills directly. Ask one to two questions at a time.
-Complete and test each phase before moving to the next.
+Write everything for them. When a skill is final, write the complete .md file and have them save
+it into their one master skills folder in Google Drive, then link that folder into the Project.
+That folder is the single source of truth. Ask one to two questions at a time. Complete and test
+each phase before moving to the next.
 
 Read references/pm-skill.md before building any PM or agency-related skill in Phase 3.
 Read references/integrations.md whenever a tool connection is needed in Phase 2.
@@ -76,10 +77,8 @@ trigger itself, so we need to decide how recurring runs get started. Two options
 2. Claude in Chrome. Anthropic's browser extension. Save the run as a shortcut, then schedule
    it by clicking the clock icon in the top-right of the extension panel and picking a cadence
    (daily, weekly, monthly, or annually). Runs autonomously in the browser on schedule. Same
-   always-on caveat as Cowork: it only runs while the computer is awake and Chrome is open. Note
-   the model tier: on Pro, Claude in Chrome is limited to Haiku 4.5; Max, Team, and Enterprise can
-   choose the model. Best for browser-driven work, or for people who live in Chrome rather than the
-   desktop app.
+   always-on caveat as Cowork: it only runs while the computer is awake and Chrome is open. Best
+   for browser-driven work, or for people who live in Chrome rather than the desktop app.
 
 Have them install and sign in to whichever they pick now, during setup, so it is ready. In
 Claude Desktop, Cowork's /schedule is available in any Cowork session. For Claude in Chrome,
@@ -195,8 +194,9 @@ Walk them through creating the Project:
 3. "Click Project Instructions. Paste the system prompt we just wrote. Save it."
 4. "Click Add Content in the Project Knowledge section. Connect the Google Drive folders we
    identified as source material. Your employee pulls from these automatically."
-5. "If your voice and tone skill was built in prework, upload that skill file to Project
-   Knowledge as well. Your employee will reference it for all external communication."
+5. "Link your master skills folder from Google Drive into Project Knowledge. Your voice and tone
+   skill from prework already lives there, and every skill you build in Phase 3 gets saved there
+   too. Your employee references these automatically."
 
 Confirm the Project is live before moving to Phase 2.
 
@@ -210,13 +210,18 @@ Ask: "For your employee to complete their work end to end, what tools do they ne
 from or write to beyond Google Drive? Think about where work comes in and where finished
 outputs need to go."
 
-For each tool they name, check against the native integrations list first:
+Do not connect everything. Connect only what this employee's workflow actually needs, based on
+where their work comes in and where their outputs go. This is different for every employee and
+every role. A reporting employee needs different tools than an inbox employee.
 
-**Native Claude integrations (Settings > Integrations):** Google Drive, Gmail, Slack, GitHub,
-Jira. If their tool is on this list and not yet connected, walk them through connecting it now.
+For each tool they name, check the Connectors directory first:
 
-**Everything else:** Read references/integrations.md and give them the exact Zapier or Make
-setup steps for that tool. Do not tell them to figure it out. Walk them through every step.
+**Connectors directory (Settings > Connectors):** Claude connects to hundreds of tools here,
+and the list grows constantly. Search for their tool before assuming it needs anything else.
+If it is there, walk them through connecting and authorizing it now.
+
+**Not in the directory:** Read references/integrations.md and walk them through the Zapier or
+Make fallback for that tool. Do not tell them to figure it out. Walk them through every step.
 
 ### Verify what a connector actually does before wiring it
 
@@ -280,9 +285,11 @@ So work in a revision loop:
 3. When they give a revision, apply the change and REGENERATE the actual output so they can
    react to the new version. Repeat.
 4. Keep iterating on the output until they say they are happy with it.
-5. ONLY THEN write the full, final SKILL.md that reliably reproduces the approved output. Use
-   the skill creator to build and save it. Then tell them exactly what to do with the file
-   (where it goes, how it is used).
+5. ONLY THEN write the full, final SKILL.md that reliably reproduces the approved output. Write
+   the complete .md file for them. Have them save it into their one master skills folder in Google
+   Drive, then confirm that folder is linked into the Project. Every skill lives in that one
+   folder as a single source of truth the whole team can use. Do not paste a skill straight into
+   the Project without the Drive copy, or versions will fork.
 
 Do not generate the final skill file mid-iteration. The skill is the last artifact, written to
 lock in an output they have already approved.
@@ -313,7 +320,7 @@ If this skill is recurring, now wire up the trigger using the mechanism they cho
   at run time, and that a two-day cadence like Mon/Thu is two weekly tasks or a custom cron.
 - If they chose Claude in Chrome: save the run as a shortcut, then click the clock icon in the
   extension panel and set the cadence. Remember Chrome must be open and the machine awake at run
-  time, and that on Pro the extension runs on Haiku 4.5.
+  time.
 
 Give them the exact run prompt to paste. Keep it short; the skill carries the detail.
 
@@ -392,10 +399,11 @@ What is the first real situation you are going to hand them when you leave today
 - If they carve out an approval exception, rewrite the Hard Rules so the system prompt is
   self-consistent. Never leave a blanket no-ship rule next to a skill that autosends.
 - The human's only job is approving. If any step requires the human to do work, redesign it.
-- Use the skill creator for all skill building, saving, and updating. No copy-paste instructions.
+- Write the full .md skill file for them. They save it into one master skills folder in Google
+  Drive, and that folder is linked into the Project. That folder is the single source of truth.
 - Reuse existing skills. Prefer thin orchestration skills that chain what they already have.
 - Verify a connector's real capability before building a skill that depends on it.
-- If a tool has no native Claude integration, read references/integrations.md and give exact steps.
+- If a tool is not in the Connectors directory, read references/integrations.md and give exact steps.
 - Pull from Google Drive wherever possible. The human should never paste in information that
   already exists somewhere the employee can access.
 - Build every skill by iterating on the real output. Only write the final SKILL.md once the
