@@ -54,6 +54,38 @@ Do not proceed to Phase 1 until Drive is confirmed connected.
 
 ---
 
+## Setup: Choose How Recurring Work Will Run
+
+Do this during setup, before Phase 1, because the answer changes how you guide the build later.
+
+A Claude Project does not run itself. A Project only acts when it is prompted. So any recurring
+work the employee owns (a daily brief, a weekly report) needs something to KICK OFF the run on a
+schedule. Decide the mechanism now.
+
+Ask: "Some of your employee's work will probably repeat on a schedule. A Claude Project can't
+trigger itself, so we need to decide how recurring runs get started. Two options:"
+
+1. Claude Cowork scheduled tasks. Native recurring automation. In Claude Desktop, the /schedule
+   command turns a prompt into a task that runs on a cadence (hourly, daily, weekly, weekdays,
+   or manual). Each run is its own session with full connector access. One real limitation:
+   tasks only run while your computer is awake and Claude Desktop is open. If the machine is
+   asleep, the run is skipped and fires the next time you open the app. Best for people who keep
+   their desktop on and want true hands-off runs. For a two-day cadence like Mon and Thu, set
+   two weekly tasks or a custom cron expression.
+
+2. Chrome extension shortcuts. A prompt-manager extension where you save the run prompt as a
+   named shortcut and fire it with a keyword or one click. If the extension supports scheduling,
+   set the cadence there; if not, this is a fast manual trigger you invoke yourself on run days.
+   Best for people who want zero desktop dependency and are happy to kick runs off by hand.
+
+Record their choice. When you reach a recurring skill in Phase 3, you will implement scheduling
+using the option they picked here. Do not implement scheduling for a skill until it has been
+built and its output approved.
+
+If none of their work is recurring, note that and skip scheduling entirely.
+
+---
+
 ## Phase 1: Define the Employee
 
 Do not ask what task they want to automate. Ask who they want to hire.
@@ -61,6 +93,12 @@ Do not ask what task they want to automate. Ask who they want to hire.
 Ask: "If you could hire one person tomorrow to take something completely off your plate, what
 role would that be? Not a task. A role. Think about who you have been putting off hiring because
 it feels too expensive or too hard to train."
+
+It is fine if the answer is a combined role that spans two or three functions (for example a
+Growth Marketing Manager who owns reporting, paid media, and competitive intel). Do not force
+them to narrow it. But if they combine functions, still cap the build at two to three tested
+skills for shadow mode and tell them the rest can be added after week one. A combined role with
+ten skills launches half-trained.
 
 After they answer, ask: "What would that person own from start to finish? Walk me through their
 entire day. What comes in, what do they do with it, and what goes out the other side?"
@@ -133,6 +171,17 @@ After seven days with consistent high confidence and no corrections, begin opera
 showing your work on routine tasks.
 ```
 
+### Handling approval carve-outs
+
+Approval is not always all-or-nothing. If the person wants the employee to ship one specific
+output on its own while everything else still needs approval (for example, "nothing ships
+without me EXCEPT the daily brief, which can post itself"), you must make the system prompt
+self-consistent. Do not leave a blanket "never ship without approval" Hard Rule sitting next to
+a skill that autosends. Rewrite the relevant Hard Rule to name the exception explicitly, e.g.
+"Never ship, send, or publish without approval, EXCEPT [named output], which [autosends where].
+Everything else still needs approval." A carve-out that contradicts the Hard Rules will confuse
+the employee.
+
 Walk them through creating the Project:
 
 1. "Go to claude.ai. In the left sidebar click Projects, then New Project."
@@ -163,6 +212,16 @@ Jira. If their tool is on this list and not yet connected, walk them through con
 **Everything else:** Read references/integrations.md and give them the exact Zapier or Make
 setup steps for that tool. Do not tell them to figure it out. Walk them through every step.
 
+### Verify what a connector actually does before wiring it
+
+A connector's name can lie. Two different products can share a brand name, and one may do
+something completely different from what the person expects (for example, a "Sprout" connector
+that is a B2B prospecting tool, not the social-listening product they assumed). Before you build
+a skill that depends on a connector's capability, confirm the connector actually has that
+capability. If it does not, check the connector registry for one that does, and if nothing fits,
+fall back to a reliable alternative such as web search. Never encode a capability into a skill
+that the connected tool cannot actually perform.
+
 After all tools are connected, confirm: "Your employee can now reach every tool they need.
 They will not have to ask you to pull information or manually move outputs between systems."
 
@@ -172,6 +231,14 @@ They will not have to ask you to pull information or manually move outputs betwe
 
 A skill teaches the employee how to run one process end to end. Build two to three skills.
 Complete and test each one fully before starting the next.
+
+### Use existing skills first
+
+If the person already has skills built (their own, or ones from earlier work), do not rebuild
+that capability from scratch. The fastest, highest-quality path is usually a thin ORCHESTRATION
+skill that chains existing skills into one end-to-end run (for example, a "daily brief" skill
+that pulls signal and then calls their existing formatting and posting skills). Check what they
+already have before writing anything new.
 
 For each skill, run this sequence:
 
@@ -194,36 +261,64 @@ If it lives in their head, ask:
 If they are an agency or service provider and this process involves client work: read
 references/pm-skill.md and incorporate client file location logic into the skill.
 
-### Step 2: Build the skill
+### Step 2: Build the process by iterating on the OUTPUT, not the skill text
 
-Use the skill creator to build and save the skill directly. Do not show raw skill content
-and ask them to copy it anywhere. Structure every skill with:
+This is the core of Phase 3. Do not write a finished skill file and then ask them to react to
+skill text. People cannot judge a skill by reading it. They judge it by seeing what it produces.
 
-- What triggers this skill
-- What source material to pull from Drive before starting
+So work in a revision loop:
+
+1. Produce the ACTUAL output the skill would generate. Run it for real, using their real tools
+   and a real scenario from their business.
+2. Show them that output. Ask what is wrong with it.
+3. When they give a revision, apply the change and REGENERATE the actual output so they can
+   react to the new version. Repeat.
+4. Keep iterating on the output until they say they are happy with it.
+5. ONLY THEN write the full, final SKILL.md that reliably reproduces the approved output. Use
+   the skill creator to build and save it. Then tell them exactly what to do with the file
+   (where it goes, how it is used).
+
+Do not generate the final skill file mid-iteration. The skill is the last artifact, written to
+lock in an output they have already approved.
+
+Structure the final skill with:
+- What triggers this skill (and its cadence, if recurring)
+- What source material to pull from Drive or other tools before starting
 - The complete step-by-step process the employee runs autonomously
 - Decision rules and exceptions
 - What the finished output looks like
 - What never to do
 
-### Step 3: Test the skill
+### Statefulness for recurring outputs
 
-After the skill is built, run a live test inside the Project. Use a real scenario from their
-business, not a hypothetical.
+If the output repeats on a schedule (a daily or twice-weekly brief), it must not repeat itself
+across runs. Build a dedup step into the skill using the output channel itself as the ledger:
+before generating, have the employee read its own recent posts/outputs in the destination
+(for example, read the last several messages in the target Slack channel) and exclude anything
+already covered. This keeps the second run of the week from repeating the first, with nothing
+for the human to maintain.
 
-Say: "Let's test this now. Give me a real example of [trigger situation] that happened recently
-or that you expect to happen soon."
+### Step 3: Implement scheduling (only for recurring skills, only after approval)
 
-Run the scenario. Then review the output together:
+If this skill is recurring, now wire up the trigger using the mechanism they chose in Setup:
+
+- If they chose Claude Cowork: in Claude Desktop, open a Cowork session, type /schedule, paste
+  the run prompt, and set the cadence. Remind them the machine must be awake and Desktop open
+  at run time, and that a two-day cadence like Mon/Thu is two weekly tasks or a custom cron.
+- If they chose the Chrome extension shortcuts: save the run prompt as a named shortcut, and set
+  its schedule if the extension supports one, otherwise confirm they will fire it on run days.
+
+Give them the exact run prompt to paste. Keep it short; the skill carries the detail.
+
+### Step 4: Confirm it passes
+
+After the output is approved and (if recurring) scheduled:
 - "Did the employee do what you expected?"
-- "Is anything missing from the output?"
-- "Did it pull the right information or did it ask you for something it should have found itself?"
+- "Did it pull the right information or ask you for something it should have found itself?"
 - "Would you approve this output or does something need to change?"
 
-If the output needs changes: update the skill using the skill creator. Do not proceed to the
-next skill until this one passes.
-
-After it passes: "This skill is working. Let's build the next one." Repeat for each skill.
+Do not proceed to the next skill until this one passes. Then: "This skill is working. Let's
+build the next one." Repeat for each skill.
 
 ---
 
@@ -243,8 +338,8 @@ Before closing, run one complete scenario that requires the employee to use more
 "Give me a situation where your employee would need to use more than one of these skills to
 complete the work. Let's run it all the way through."
 
-Review the full output. If anything needs updating, use the skill creator to fix it before
-ending the session.
+Review the full output. If anything needs updating, iterate on the output first, then update the
+skill to lock in the fix before ending the session.
 
 ### Set the shadowing window
 
@@ -255,6 +350,10 @@ correction back.
 Every correction goes into the Project Instructions as a permanent new rule. Do not fix it in
 conversation and move on. If it happened once it will happen again. Make it a rule so it never
 does."
+
+During shadow mode, recurring runs are ideal to trigger manually even if you set up scheduling,
+so you see the first several runs before they fire unattended. Once a skill is proven, let the
+scheduled trigger take over.
 
 ---
 
@@ -278,14 +377,25 @@ What is the first real situation you are going to hand them when you leave today
 ## Facilitator Rules
 
 - Confirm prework is done before starting. Do not skip this check.
+- Decide the scheduling mechanism (Cowork or Chrome extension shortcuts) during setup, before
+  Phase 1, since it changes how you guide recurring-skill implementation later.
 - Never ask what task they want to automate. Always ask who they want to hire.
+- A combined role is fine, but still cap at two to three tested skills for shadow mode.
+- If they carve out an approval exception, rewrite the Hard Rules so the system prompt is
+  self-consistent. Never leave a blanket no-ship rule next to a skill that autosends.
 - The human's only job is approving. If any step requires the human to do work, redesign it.
 - Use the skill creator for all skill building, saving, and updating. No copy-paste instructions.
+- Reuse existing skills. Prefer thin orchestration skills that chain what they already have.
+- Verify a connector's real capability before building a skill that depends on it.
 - If a tool has no native Claude integration, read references/integrations.md and give exact steps.
 - Pull from Google Drive wherever possible. The human should never paste in information that
   already exists somewhere the employee can access.
+- Build every skill by iterating on the real output. Only write the final SKILL.md once the
+  person is happy with the output, then tell them what to do with the file.
+- For recurring outputs, build in a dedup step using the destination channel as the ledger.
+- A Claude Project cannot self-schedule. Recurring runs need Cowork scheduled tasks or an
+  external/manual trigger. Say so plainly; never imply a Project runs itself.
 - Test every skill before building the next one. Do not skip testing.
-- After testing, check whether the skill needs updating before moving on.
 - If they try to add more than three skills: "Let's get these working in shadow mode first.
   You can add more after the first seven days."
 - If their SOP is messy or incomplete, work with what they have. Do not ask them to clean it up.
