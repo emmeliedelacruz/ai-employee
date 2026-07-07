@@ -11,8 +11,45 @@ You will end the workshop with a working AI employee inside Claude that handles 
 
 - A Claude account (claude.ai). You need a paid plan (Pro or higher) to use Projects and upload files.
 - A Google account with Google Drive. This is how your AI employee pulls your files automatically.
-- 30 minutes for prework. Do not skip this. Showing up without prework done means you start behind.
 - A scheduling tool, if any of your employee's tasks repeat on a schedule. A Claude Project cannot trigger itself, so recurring runs need either Claude Cowork (the /schedule command in the Claude Desktop app) or the Claude in Chrome extension (save a shortcut, then schedule it with the clock icon). You will install and set up one of these during the workshop's setup step. Both only run while your computer is awake and the app or browser is open.
+
+---
+
+## How This Works: Projects Are Employees, Skills Are How You Train Them
+
+Before you build anything, understand the model. It makes every step after this click.
+
+**A Claude Project is an AI employee.** The Project holds who that employee is (their instructions), what they can see (connected Google Drive folders), and how they do their work (their skills). You build one Project per employee.
+
+**Skills are how you train that employee.** Each skill is one process written down as a file — how to run your weekly report, how to onboard a client, how to answer a common email. An employee has several skills linked to it inside its Project. Add a skill and the employee can do a new thing. Update a skill and the employee gets better at it.
+
+**Skills are just files — `.md` or `.txt`.** A `.txt` file works if you only want to paste plain text in. A Markdown (`.md`) file is the better default, and here is where to keep it.
+
+**Keep your skills as `.md` files in Google Drive, then link them into the Project.** This gives you one source of truth: when a process changes, you update the file in Drive once and every employee linked to it is current — no forked copies drifting apart. It also makes your skills instantly shareable. Hand a new hire or a teammate the Drive folder and they have the exact same trained employee you do. Skills you build for yourself become skills your whole team can run.
+
+### One-Time Setup: Turn On Skill-Building in Every Chat
+
+Do this once. It tells Claude to help you build and maintain skills in every conversation, not only inside a Project.
+
+1. Go to claude.ai and click your profile icon in the top right.
+2. Click **Settings**, then **Profile**.
+3. Find the box that asks what personal preferences Claude should consider in its responses. Paste the text below into it and save.
+
+```
+Build and improve my skills as we work. My skills are reusable workflow files (.md or .txt) that live in my Claude Projects — each Project is one AI employee, and its skills are how that employee is trained. Whenever a repeatable process, a correction I had to apply, or a new learning comes up, proactively tell me — without waiting to be asked — whether it should be a new skill or an update to an existing one, and name which skill.
+
+When creating or updating a skill, always:
+1. Name + trigger: a clear name and a one-line "when to use this."
+2. New vs. update: state whether it's a new skill or an update to a specific named skill.
+3. Structure: Purpose / When to use, then Steps, then Gotchas & learnings, then Output format.
+4. Changelog: note the date and what changed at the top.
+5. Confirm first: show me the draft and get my sign-off before finalizing.
+6. One canonical copy: keep a single source of truth (I keep mine as .md files in Google Drive) and tell me exactly where it lives so versions don't fork.
+
+Keep skills concise and copy-paste ready. Fold in real learnings from our sessions, not generic advice.
+```
+
+From now on, whenever you and Claude land on a process worth keeping, Claude flags it and offers to turn it into a skill in this format. That is how your employees get smarter over time.
 
 ---
 
@@ -65,18 +102,8 @@ If your employee has recurring work, keep triggering those runs yourself during 
 
 ---
 
-## How to Upload Files in Claude
-
-1. Open claude.ai in a browser on your desktop or laptop. This does not work as well on mobile.
-2. Start a new conversation.
-3. Click the paperclip icon next to the message box.
-4. Select the file you want to upload from this folder.
-5. Type your instruction and send.
-
----
-
 ## Questions
 
 If you get stuck at any point during prework or the workshop, Claude will help you troubleshoot. Tell it exactly what you see on your screen and it will walk you through it.
 
-For anything else or to hire me to build it for you, reach out at emmelie@agencyvilla.com.
+For anything else or to hire me to build it for you, reach out at admin@agencyvilla.com.
