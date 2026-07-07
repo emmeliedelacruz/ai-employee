@@ -26,7 +26,7 @@ It works for any role that involves repeatable decisions, repeatable communicati
 
 ## How to Use This
 
-1. Copy and paste this into Claude: Let's build an ai employee https://github.com/emmeliedelacruz/ai-employee
+1. Copy and paste this into Claude: Let's build an ai employee [https://github.com/emmeliedelacruz/ai-employee](https://github.com/emmeliedelacruz/ai-employee)
 
 ---
 
@@ -37,4 +37,5 @@ Built by Emmelie De La Cruz. Head of Growth at Bubble.io. Founder of VILLA, an A
 15 years building marketing systems, funnels, automations, and agencies. This workshop is the same system I use to onboard clients and the same methodology I used to convert my own agency's human SOPs into AI agents.
 
 admin@villaagency.com
-linkedin.com/in/emmeliedelacruz
+[https://linkedin.com/in/emmeliedelacruz](https://linkedin.com/in/emmeliedelacruz)
+
