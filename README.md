@@ -26,13 +26,7 @@ It works for any role that involves repeatable decisions, repeatable communicati
 
 ## How to Use This
 
-1. Download or clone this repo.
-2. Open Claude at claude.ai. You need a paid plan (Pro or higher).
-3. Start with the prework. Upload `ai-agent-prework/SKILL.md` and type: "Start the prework."
-4. When prework is complete, upload `ai-agent-workshop/SKILL.md` and type: "Start the workshop."
-5. Follow the workshop from start to finish without skipping phases.
-
-The full setup guide for clients is in `CLIENT-SETUP-GUIDE.md`.
+1. Copy and paste this into Claude: Let's build an ai employee https://github.com/emmleiedelacruz/ai-employee
 
 ---
 
