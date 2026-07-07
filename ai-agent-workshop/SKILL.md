@@ -56,7 +56,7 @@ Do not proceed to Phase 1 until Drive is confirmed connected.
 
 ## Setup: Choose How Recurring Work Will Run
 
-Do this during setup, before Phase 1, because the answer changes how you guide the build later.
+Do this during setup, before Phase 1, because the answer changes how you guide the build later. Budget about 15 minutes for the full setup portion, including installing and configuring whichever scheduling tool they choose below.
 
 A Claude Project does not run itself. A Project only acts when it is prompted. So any recurring
 work the employee owns (a daily brief, a weekly report) needs something to KICK OFF the run on a
@@ -73,14 +73,20 @@ trigger itself, so we need to decide how recurring runs get started. Two options
    their desktop on and want true hands-off runs. For a two-day cadence like Mon and Thu, set
    two weekly tasks or a custom cron expression.
 
-2. Chrome extension shortcuts. A prompt-manager extension where you save the run prompt as a
-   named shortcut and fire it with a keyword or one click. If the extension supports scheduling,
-   set the cadence there; if not, this is a fast manual trigger you invoke yourself on run days.
-   Best for people who want zero desktop dependency and are happy to kick runs off by hand.
+2. Claude in Chrome. Anthropic's browser extension. Save the run as a shortcut, then schedule
+   it by clicking the clock icon in the top-right of the extension panel and picking a cadence
+   (daily, weekly, monthly, or annually). Runs autonomously in the browser on schedule. Same
+   always-on caveat as Cowork: it only runs while the computer is awake and Chrome is open. Note
+   the model tier: on Pro, Claude in Chrome is limited to Haiku 4.5; Max, Team, and Enterprise can
+   choose the model. Best for browser-driven work, or for people who live in Chrome rather than the
+   desktop app.
 
-Record their choice. When you reach a recurring skill in Phase 3, you will implement scheduling
-using the option they picked here. Do not implement scheduling for a skill until it has been
-built and its output approved.
+Have them install and sign in to whichever they pick now, during setup, so it is ready. In
+Claude Desktop, Cowork's /schedule is available in any Cowork session. For Claude in Chrome,
+install the extension from the Chrome Web Store, sign in with their Claude account, and grant
+permissions. Record their choice. When you reach a recurring skill in Phase 3, you will wire up
+the actual schedule using the tool they set up here. Do not create the schedule for a skill
+until it has been built and its output approved.
 
 If none of their work is recurring, note that and skip scheduling entirely.
 
@@ -305,8 +311,9 @@ If this skill is recurring, now wire up the trigger using the mechanism they cho
 - If they chose Claude Cowork: in Claude Desktop, open a Cowork session, type /schedule, paste
   the run prompt, and set the cadence. Remind them the machine must be awake and Desktop open
   at run time, and that a two-day cadence like Mon/Thu is two weekly tasks or a custom cron.
-- If they chose the Chrome extension shortcuts: save the run prompt as a named shortcut, and set
-  its schedule if the extension supports one, otherwise confirm they will fire it on run days.
+- If they chose Claude in Chrome: save the run as a shortcut, then click the clock icon in the
+  extension panel and set the cadence. Remember Chrome must be open and the machine awake at run
+  time, and that on Pro the extension runs on Haiku 4.5.
 
 Give them the exact run prompt to paste. Keep it short; the skill carries the detail.
 
@@ -377,8 +384,9 @@ What is the first real situation you are going to hand them when you leave today
 ## Facilitator Rules
 
 - Confirm prework is done before starting. Do not skip this check.
-- Decide the scheduling mechanism (Cowork or Chrome extension shortcuts) during setup, before
-  Phase 1, since it changes how you guide recurring-skill implementation later.
+- Set up the scheduling mechanism (Claude Cowork /schedule or Claude in Chrome) during setup,
+  before Phase 1. Have them install and sign in then; budget ~15 minutes for the setup portion.
+  The choice changes how you guide recurring-skill implementation later.
 - Never ask what task they want to automate. Always ask who they want to hire.
 - A combined role is fine, but still cap at two to three tested skills for shadow mode.
 - If they carve out an approval exception, rewrite the Hard Rules so the system prompt is
@@ -393,8 +401,9 @@ What is the first real situation you are going to hand them when you leave today
 - Build every skill by iterating on the real output. Only write the final SKILL.md once the
   person is happy with the output, then tell them what to do with the file.
 - For recurring outputs, build in a dedup step using the destination channel as the ledger.
-- A Claude Project cannot self-schedule. Recurring runs need Cowork scheduled tasks or an
-  external/manual trigger. Say so plainly; never imply a Project runs itself.
+- A Claude Project cannot self-schedule. Recurring runs need Claude Cowork /schedule or Claude
+  in Chrome scheduled shortcuts. Both only run while the computer is awake and the app/browser is
+  open. Say so plainly; never imply a Project runs itself.
 - Test every skill before building the next one. Do not skip testing.
 - If they try to add more than three skills: "Let's get these working in shadow mode first.
   You can add more after the first seven days."
