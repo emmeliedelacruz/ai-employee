@@ -26,7 +26,7 @@ It works for any role that involves repeatable decisions, repeatable communicati
 
 ## How to Use This
 
-1. Copy and paste this into Claude: Let's build an ai employee https://github.com/emmleiedelacruz/ai-employee
+1. Copy and paste this into Claude: Let's build an ai employee https://github.com/emmeliedelacruz/ai-employee
 
 ---
 
