@@ -42,5 +42,5 @@ Built by Emmelie De La Cruz. Head of Growth at Bubble.io. Founder of VILLA, an A
 
 15 years building marketing systems, funnels, automations, and agencies. This workshop is the same system I use to onboard clients and the same methodology I used to convert my own agency's human SOPs into AI agents.
 
-hi@emmeliedelacruz.com
+admin@villaagency.com
 linkedin.com/in/emmeliedelacruz
