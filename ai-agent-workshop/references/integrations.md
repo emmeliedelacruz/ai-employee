@@ -1,35 +1,47 @@
 # Integrations Reference
 
-Read this file whenever a tool connection is needed and Claude does not have a native integration
-for it. Give the attendee exact steps. Do not tell them to figure it out or look it up.
+Read this file when a tool connection is needed. The goal is simple: connect only the tools this
+specific employee's workflow needs, using the easiest method available. Start with the Connectors
+directory. Fall back to Zapier or Make only for tools the directory does not cover.
+
+Do not tell the attendee to figure anything out. Give exact steps from wherever they are.
 
 ---
 
-## Native Claude Integrations (No Setup Required Beyond Authorization)
+## Connect Based on the Workflow, Not a Checklist
 
-These tools connect directly inside Claude Settings > Integrations. Walk the attendee through
-authorization if they have not done it yet.
+Every employee needs a different set of tools. A reporting employee needs different connections
+than an inbox employee or a client-onboarding employee. Do not connect everything. Look at where
+this employee's work comes in and where its finished outputs need to go, and connect only those
+tools.
 
-- Google Drive
-- Gmail
-- Slack
-- GitHub
-- Jira (via Atlassian)
-
-For each, the steps are:
-1. Go to claude.ai and click the profile icon in the top right.
-2. Click Settings, then Integrations.
-3. Find the tool and click Connect.
-4. Sign in and authorize access.
-5. Confirm back here when it is done.
+Ask: "For this employee to do its job end to end, where does its work come from and where do its
+outputs need to land?" Connect the tools that answer that question. Nothing more.
 
 ---
 
-## Tools Without Native Integration: Use Zapier or Make
+## Start With the Connectors Directory
 
-For any tool that does not appear in Claude's native integrations, the connection runs through
-Zapier or Make as the bridge. These are no-code tools. Treat the attendee as non-technical and
-give exact steps.
+Claude connects to a large and constantly growing set of tools directly, with no third-party
+bridge. This is always the first thing to check. Do not assume a tool is missing.
+
+Steps:
+
+1. "Go to claude.ai and click your profile icon in the top right."
+2. "Click Settings, then Connectors."
+3. "Search for the tool by name."
+4. "If it is listed, click Connect, sign in, and authorize the access it asks for."
+5. "Come back here and confirm it is connected."
+
+Google Drive is connected during prework. Connect the rest here as each one comes up in the
+build. If a tool is in the directory, this is the whole job. Move on.
+
+---
+
+## When a Tool Is Not in the Directory: Zapier or Make
+
+Use this path only for a tool that is not in the Connectors directory. Zapier and Make are no-code
+bridges. Treat the attendee as non-technical and give exact steps.
 
 ### When to use Zapier vs Make
 
@@ -37,19 +49,22 @@ Use Zapier if the attendee has never used either. It is simpler and has more pre
 Use Make if they already have a Make account or if their workflow is complex with multiple
 branches.
 
+### The pattern
+
+Whatever the tool, the shape is the same. Something happens in the tool (a new form submission,
+a new CRM record, a new row). The bridge sends that information to Claude. Claude processes it and
+responds. The bridge routes the response wherever it needs to go (a Slack message, an email draft,
+a CRM note, a new row). Build every fallback connection around that pattern.
+
+### A note on the model in the API call
+
+The Zapier and Make paths call the Claude API, which requires a model ID in the request. Model
+names change over time. Do not hardcode an old one. Get the current model ID from Anthropic's
+docs at docs.claude.com and paste it in where the payload below shows REPLACE_WITH_CURRENT_MODEL_ID.
+
 ---
 
 ## Setting Up a Zapier Connection to Claude
-
-Use this when their tool is not natively supported.
-
-### What this does
-
-When something happens in their tool (a new form submission, a CRM update, a new row in a
-spreadsheet), Zapier sends that information to Claude, Claude processes it and responds, and
-Zapier routes the response back to wherever it needs to go.
-
-### Steps
 
 1. "Go to zapier.com and create a free account if you do not have one."
 
@@ -69,12 +84,12 @@ Zapier routes the response back to wherever it needs to go.
 
 8. "Set Payload Type to JSON."
 
-9. "In the Data section, enter this exactly, replacing the prompt text with what you want
-   Claude to do with the incoming information:"
+9. "In the Data section, enter this exactly, replacing the model ID with the current one from
+   docs.claude.com and replacing the prompt text with what you want Claude to do:"
 
 ```json
 {
-  "model": "claude-opus-4-5",
+  "model": "REPLACE_WITH_CURRENT_MODEL_ID",
   "max_tokens": 1024,
   "messages": [
     {
@@ -106,8 +121,6 @@ Zapier routes the response back to wherever it needs to go.
 
 Use this for attendees who already use Make or need more complex branching logic.
 
-### Steps
-
 1. "Go to make.com and sign in or create an account."
 
 2. "Click Create a new scenario."
@@ -124,11 +137,11 @@ Use this for attendees who already use Make or need more complex branching logic
    - Body type: Raw
    - Content type: JSON
 
-6. "In the body, enter:"
+6. "In the body, enter this, replacing the model ID with the current one from docs.claude.com:"
 
 ```json
 {
-  "model": "claude-opus-4-5",
+  "model": "REPLACE_WITH_CURRENT_MODEL_ID",
   "max_tokens": 1024,
   "messages": [
     {
@@ -147,44 +160,12 @@ Use this for attendees who already use Make or need more complex branching logic
 
 ---
 
-## Common Tool Connections
-
-### CRM (HubSpot, Salesforce, Pipedrive, GoHighLevel)
-
-Use Zapier or Make with the trigger set to New Contact, New Lead, or Deal Stage Changed.
-Send the contact or deal data to Claude with instructions to draft a follow-up, classify the
-lead, or generate next steps. Route the output back to the CRM as a note or task.
-
-### Typeform or Google Forms
-
-Use Zapier trigger: New Submission. Send the form responses to Claude. Claude processes the
-intake, drafts a response or summary, and routes it to Gmail, Slack, or the CRM.
-
-### Notion
-
-Notion has limited Zapier support for triggers. Use Make for Notion workflows. Trigger on
-New Database Item. Send the item to Claude and route the response back as a new property
-or comment on the item.
-
-### Airtable
-
-Use Zapier trigger: New Record or Record Updated. Send the record fields to Claude. Route
-Claude's output back as a new field in the same record or as a message to Slack or Gmail.
-
-### Calendly or Acuity
-
-Trigger on Invitee Created (new booking). Send the booking details to Claude. Claude drafts
-a personalized confirmation or prep email. Route to Gmail as a draft or send directly
-depending on their approval preference.
-
----
-
 ## When Setup Fails
 
-If the attendee gets stuck on a step, do not tell them to refer to documentation. Ask them
-to describe exactly what they see on screen and walk them through it from that point. If an
-error appears, ask them to read the error message out loud and diagnose from there.
+If the attendee gets stuck on a step, do not tell them to refer to documentation. Ask them to
+describe exactly what they see on screen and walk them through it from that point. If an error
+appears, ask them to read the error message out loud and diagnose from there.
 
-If a tool has no Zapier or Make connector at all, ask: "Is there another tool in your workflow
-that does connect to Zapier that feeds into or out of this one?" Find the nearest connected
-point and bridge from there.
+If a tool is not in the directory and has no Zapier or Make connector either, ask: "Is there
+another tool in your workflow that does connect and that feeds into or out of this one?" Find the
+nearest connected point and bridge from there.

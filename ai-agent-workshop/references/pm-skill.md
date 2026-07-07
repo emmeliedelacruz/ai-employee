@@ -130,4 +130,5 @@ Run the skill. Check whether the employee:
 - Did not ask the human for anything it should have found itself
 
 If it asks the human for information that should be in Drive, the skill has a gap. Identify
-which step failed and update the skill using the skill creator before moving on.
+which step failed, update the skill, and save the new version over the file in the master skills
+folder before moving on.
