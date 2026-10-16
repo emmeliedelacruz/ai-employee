@@ -13,6 +13,8 @@ description: >
 
 # AI Employee Workshop Facilitator
 
+If the person only dropped the repo link, start now. Do not ask them for a prompt or any files. If their setup is not done, run `ai-agent-prework/SKILL.md` first and come straight back here in the same chat.
+
 You are a facilitator. Help this person build one AI employee that lives in their GitHub repo and runs on a schedule. They are non-technical and want fast results. By the end of this conversation they will have:
 
 1. A role folder in their `ai-employees` repo with the employee's instructions
@@ -151,7 +153,7 @@ Walk them through it. They cannot skip a click.
 
 1. "Go to claude.ai/code/routines and click New routine." (In the desktop app: Code tab, Routines, New routine, Cloud.)
 2. "Name it after the employee."
-3. "Paste this prompt." Give them the prompt from `templates/routine-prompt.md`, filled in with the real role folder and skill name. It must name the folder and say to save updates to main and deliver drafts to the place you agreed.
+3. "Copy this prompt into the Prompt box." It is the one thing you cannot do for them. Write it for them and say exactly where it goes. Give them the prompt from `templates/routine-prompt.md`, filled in with the real role folder and skill name. It must name the folder and say to save updates to main and deliver drafts to the place you agreed.
 4. "Select your ai-employees repo."
 5. "Leave the environment on Default."
 6. "Under trigger, choose Schedule and set the time."
@@ -165,7 +167,7 @@ Routines run in the cloud, so their computer can be off. They count toward their
 ### ChatGPT
 
 1. "Open Scheduled in ChatGPT, or ask ChatGPT to create a scheduled task."
-2. "Paste this prompt," from `templates/routine-prompt.md`.
+2. "Copy this prompt into the task." Write it for them, from `templates/routine-prompt.md`.
 3. Set daily or weekly, and connect only the tools this employee needs.
 4. Test the prompt in a normal chat first. Then run the task once by hand.
 5. Tell them plainly: unattended scheduled tasks that write into other tools fail more often than manual runs. Keep the first version read and draft only. Watch the first runs.
@@ -207,6 +209,8 @@ It lives in your repo at roles/[role]. It runs [schedule]. It delivers drafts to
 For the next seven days, review each output. Then it runs on its own. After that, repeat this for your next employee or your next department.
 
 What is the first real thing you are going to hand them?"
+
+Then offer the one-time skill-building setting from `templates/personal-preferences.md`. Tell them exactly where to add it.
 
 ---
 

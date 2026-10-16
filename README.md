@@ -22,32 +22,32 @@ Click the image to play. It walks through the whole setup on screen, from making
 
 ## How To Use This Repo
 
-Do the steps in order. Each one takes you to the next.
+**Drop this link into Claude or ChatGPT. Your AI does the rest.**
+
+```
+https://github.com/emmeliedelacruz/ai-employee
+```
+
+You do not paste a prompt. You do not upload files. Your AI reads this repo, checks where you are, and gets to work. It asks you a few questions at a time and writes every file for you.
 
 1. **Watch the tutorial** above so you know where you are going.
 2. **Pick your AI.** Claude gives you the full hands-off setup. ChatGPT works with two manual steps. See the comparison below.
-3. **Start.** Choose one of three ways:
+3. **Drop the link** and answer your AI's questions. Give it as much detail as you can.
+4. **Review the output every day for a week.** Give feedback in the same chat. Your AI updates the skill.
+5. **Repeat** for your next employee. Drop the same link again.
 
-   **A. Paste a prompt (fastest).** Open Claude or ChatGPT with your repo connected and paste:
+If your AI cannot open links, download `README.md` from this repo and attach it to your chat. If you would rather click through it yourself, follow [CLIENT-SETUP-GUIDE.md](CLIENT-SETUP-GUIDE.md).
 
-   > Let's build an AI employee. Follow the instructions at https://github.com/emmeliedelacruz/ai-employee. Save every change straight to the main version of my repo.
+### What Happens After You Drop The Link
 
-   **B. Upload the files.** If your AI cannot open links: on GitHub, open `ai-agent-prework/SKILL.md`, click the download icon at the top right of the file, and attach it to your chat. Type "Start the prework." When it finishes, do the same with `ai-agent-workshop/SKILL.md` and type "Start the workshop."
+Your AI checks your repo and picks up where you left off. You never choose a step.
 
-   **C. Follow the guide yourself.** Open [CLIENT-SETUP-GUIDE.md](CLIENT-SETUP-GUIDE.md) and work through it, step by step. Use this if you want to see every click.
-
-4. **Answer your AI's questions.** It asks one or two at a time. Give it as much detail as you can. It writes every file for you.
-5. **Review the output every day for a week.** Give feedback in the same chat. Your AI updates the skill.
-6. **Repeat** for your next employee.
-
-### Which prompt for which moment
-
-| You are here | What to run |
+| Where you are | What your AI does |
 | --- | --- |
-| New to this, no repo yet | Start A or B, and your AI runs `ai-agent-prework/SKILL.md` first |
-| Repo, context, and voice are done | Start A or B with `ai-agent-workshop/SKILL.md` |
-| Adding a second employee | Start A or B with `ai-agent-workshop/SKILL.md`. Prework is already done |
-| Employee gave a wrong output | Tell your AI in the same chat what was wrong. It updates the skill |
+| New, no repo yet | Helps you make a GitHub repo and connect it, then learns who you and your company are, then captures your voice |
+| Repo, context, and voice are done | Builds your first employee, its first skill, and its routine |
+| Adding a second employee | Builds the next employee in the same repo |
+| An output was wrong | Say what was wrong in the same chat. Your AI updates the skill |
 
 ---
 
@@ -142,7 +142,14 @@ Non-technical founders, operators, and service providers who want to stop doing 
 
 ## Instructions For The AI
 
-If you are Claude or ChatGPT reading this repo because a person pasted its link: run `ai-agent-prework/SKILL.md` first if they have no repo, no context file at `shared/context/SKILL.md`, or no voice skill yet. Otherwise run `ai-agent-workshop/SKILL.md`. Speak plainly. Do the file work for them. Save every change straight to main. Ask one or two questions at a time.
+If a person dropped this repo link into your chat, start now. Do not ask them to paste a prompt or upload files.
+
+1. Read `ai-agent-prework/SKILL.md` and `ai-agent-workshop/SKILL.md`.
+2. Find out where they are. Check for their `ai-employees` repo, `shared/context/SKILL.md`, and `shared/voice-and-tone/SKILL.md`.
+3. If anything is missing, run the matching part of `ai-agent-prework/SKILL.md`. When it is done, move straight into `ai-agent-workshop/SKILL.md` in the same chat.
+4. If everything exists, run `ai-agent-workshop/SKILL.md` to build the next employee.
+5. Save every change straight to main in their `ai-employees` repo. Never ask them to edit a file.
+6. Speak plainly. Ask one or two questions at a time.
 
 ---
 

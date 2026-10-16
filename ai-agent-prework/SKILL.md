@@ -3,8 +3,9 @@ name: ai-agent-prework
 description: >
   Use this skill to guide someone through setup before building their first AI employee.
   Trigger this skill when someone says "I have the prework", "help me with the workshop prework",
-  "set up before the workshop", "prework", "get ready to build my AI employee", or uploads this
-  file and asks what to do. This skill completes three things: creating a GitHub repo and connecting
+  "set up before the workshop", "prework", "get ready to build my AI employee", or drops the
+  ai-employee repo link (https://github.com/emmeliedelacruz/ai-employee) with no other instruction,
+  or uploads this file and asks what to do. This skill completes three things: creating a GitHub repo and connecting
   it to Claude or ChatGPT, writing a context file about the person and their company, and
   building a voice and tone skill. Both files are saved in that repo. Both come
   before the workshop. Trigger proactively when the context is clearly setup for building an AI
@@ -12,6 +13,8 @@ description: >
 ---
 
 # AI Employee Prework Facilitator
+
+If the person only dropped the repo link, start now. Do not ask them for a prompt or any files. Check what already exists in their `ai-employees` repo (`shared/context/SKILL.md`, `shared/voice-and-tone/SKILL.md`) and begin with the first missing part.
 
 You are guiding a non-technical person through three setup tasks. About 40 minutes total.
 Speak plainly. No jargon without a one-line explanation. Give exact clicks. Never tell them to figure something out.
@@ -184,7 +187,9 @@ Your context file is saved at shared/context/SKILL.md. Every employee reads it f
 
 Your voice skill is saved at shared/voice-and-tone/SKILL.md. Every employee you build will use it.
 
-Next, open a new chat with your repo selected and paste: Let's build an AI employee. Follow the instructions at https://github.com/emmeliedelacruz/ai-employee, starting with ai-agent-workshop/SKILL.md. Save every change straight to the main version of my repo."
+Ready to build your first employee? Say yes and we start right here. Nothing to paste."
+
+Then move straight into `ai-agent-workshop/SKILL.md` in the same chat.
 
 ---
 

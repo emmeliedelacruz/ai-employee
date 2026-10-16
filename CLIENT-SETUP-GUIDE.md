@@ -75,13 +75,13 @@ You can also use the Code tab in the Claude desktop app. You do not need a termi
 
 Your employees start every job knowing nothing about you. Fix that once and they all know.
 
-Start a chat or session with your repo selected and paste:
+Open Claude or ChatGPT with your repo connected and drop in this link:
 
 ```
-Let's set up my AI employees. Follow ai-agent-prework/SKILL.md at
-https://github.com/emmeliedelacruz/ai-employee, starting at Part 2.
-My repo is ai-employees. Save every change straight to the main version of my repo.
+https://github.com/emmeliedelacruz/ai-employee
 ```
+
+That is all you do. Your AI reads the repo, sees you have no context file yet, and starts.
 
 Your AI will:
 
@@ -96,16 +96,9 @@ Write only what you would tell a new hire on day one. No passwords, no keys, no 
 
 ## Step 4: Build Your Employee in Chat (30 minutes)
 
-Start a new chat or session with your repo selected and paste this:
+Stay in the same chat. When your context file and voice skill are saved, your AI moves straight into building your first employee. If you come back later, drop the same link again. Your AI checks your repo and picks up where you left off.
 
-```
-Let's build an AI employee. Follow the instructions at
-https://github.com/emmeliedelacruz/ai-employee, starting with
-ai-agent-workshop/SKILL.md. My context file and voice skill are done. My repo is ai-employees. Save every change
-straight to the main version of my repo.
-```
-
-If your AI cannot open the link, download `ai-agent-workshop/SKILL.md`, attach it to the chat, and type "Start the workshop."
+If your AI cannot open links, download `README.md` from the repo and attach it to your chat.
 
 Your AI will:
 
@@ -128,7 +121,7 @@ The routine wakes your employee up on a schedule and sends it to work. It runs i
 
 1. Go to claude.ai/code/routines and click **New routine**.
 2. **Name**: the employee, for example `Legal Assistant`.
-3. **Prompt**: point it at the folder. Example:
+3. **Prompt**: your AI writes this for you and tells you which box it goes in. It points at the folder. Example:
    ```
    You are the Legal Assistant. Read roles/legal-assistant/CLAUDE.md,
    then run the skills in roles/legal-assistant/.claude/skills/.
@@ -179,23 +172,9 @@ One employee at a time. Once the first one runs well for a week, add the next ro
 
 ---
 
-## One-Time Setting: Turn On Skill-Building in Every Chat
+## Optional: Skill-Building Setting
 
-Paste this into Claude (profile icon, Settings, Profile, personal preferences) or ChatGPT (Settings, Personalization, custom instructions). Your AI will then flag every repeatable process worth turning into a skill.
-
-```
-Build and improve my skills as we work. My skills are reusable workflow files (.md) that live in my GitHub repo ai-employees. Each folder under roles/ is one AI employee and its skills are how that employee is trained. Whenever a repeatable process, a correction I had to apply, or a new learning comes up, proactively tell me, without waiting to be asked, whether it should be a new skill or an update to an existing one, and name which skill.
-
-When creating or updating a skill, always:
-1. Name and trigger: a clear name and a one-line "when to use this."
-2. New or update: say whether it is a new skill or an update to a named skill.
-3. Structure: Purpose and when to use, then Steps, then Gotchas and learnings, then Output format.
-4. Changelog: note the date and what changed at the top.
-5. Confirm first: show me the draft and get my sign-off before saving.
-6. One copy: keep a single source of truth in my GitHub repo and tell me the exact path.
-
-Keep skills short and copy-paste ready. Use real learnings from our sessions, not generic advice.
-```
+At the end of your build, your AI offers a one-time setting that makes it flag every new skill and update as you work. Say yes and it tells you exactly where to add it.
 
 ---
 
