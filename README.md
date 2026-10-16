@@ -1,6 +1,6 @@
 # AI Employee Workshop
 
-Build your first AI employee in about an hour. No code. You need a free GitHub account and either Claude or ChatGPT.
+Build your first AI employee in about 90 minutes. No code. You need a free GitHub account and either Claude or ChatGPT.
 
 An AI employee is three things:
 
@@ -20,10 +20,11 @@ Open [CLIENT-SETUP-GUIDE.md](CLIENT-SETUP-GUIDE.md) and follow it in order. The 
 | --- | --- | --- |
 | 1 | Make a GitHub account and an empty repo called `ai-employees` | 10 min |
 | 2 | Connect the repo to Claude or ChatGPT | 10 min |
-| 3 | Chat with your AI. It interviews you and builds your employee and its first skill | 30 min |
-| 4 | Create the routine so it runs on a schedule | 10 min |
-| 5 | Give feedback for one week. Your AI updates the skills for you | 5 min a day |
-| 6 | Repeat for your next employee | |
+| 3 | Tell your AI about you and your company, and capture your voice | 20 min |
+| 4 | Chat with your AI. It interviews you and builds your employee and its first skill | 30 min |
+| 5 | Create the routine so it runs on a schedule | 10 min |
+| 6 | Give feedback for one week. Your AI updates the skills for you | 5 min a day |
+| 7 | Repeat for your next employee | |
 
 ---
 
@@ -43,7 +44,7 @@ If you are unsure, start with Claude. Plan requirements: Claude Pro or higher fo
 ## What Is In This Repo
 
 - **CLIENT-SETUP-GUIDE.md**: the step-by-step guide. Start here.
-- **ai-agent-prework/**: connects your repo and captures your voice so every output sounds like you. 30 minutes, optional for internal-only employees.
+- **ai-agent-prework/**: connects your repo, teaches your AI who you are and what your company does, and captures your voice so every output sounds like you. About 40 minutes. The voice step is optional for internal-only employees.
 - **ai-agent-workshop/**: the guided build. Your AI interviews you, writes the employee, builds and tests the first skill, and sets up the routine.
 - **templates/**: the exact files your AI creates in your repo, so you can see what you are getting.
 
@@ -57,7 +58,7 @@ Non-technical founders, operators, and service providers who want to stop doing 
 
 ## Instructions For The AI
 
-If you are Claude or ChatGPT reading this repo because a person pasted its link: run `ai-agent-prework/SKILL.md` first if they have no repo or voice skill yet. Otherwise run `ai-agent-workshop/SKILL.md`. Speak plainly. Do the file work for them. Ask one or two questions at a time.
+If you are Claude or ChatGPT reading this repo because a person pasted its link: run `ai-agent-prework/SKILL.md` first if they have no repo, no context file at `shared/context/SKILL.md`, or no voice skill yet. Otherwise run `ai-agent-workshop/SKILL.md`. Speak plainly. Do the file work for them. Ask one or two questions at a time.
 
 ---
 

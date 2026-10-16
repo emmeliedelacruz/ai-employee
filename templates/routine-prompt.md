@@ -5,7 +5,7 @@ The routine prompt has to stand on its own. Nobody is watching the run. Point th
 ## Claude (claude.ai/code/routines)
 
 ```
-You are the [Role Title]. Read roles/[role-folder]/CLAUDE.md, then run
+You are the [Role Title]. Read shared/context/SKILL.md and roles/[role-folder]/CLAUDE.md, then run
 the [skill-name] skill in roles/[role-folder]/.claude/skills/.
 Deliver the output as a draft to [where]. Save any update you make to
 a skill to main.
@@ -17,7 +17,7 @@ Saying "to main" matters. Routines save to a branch named `claude/...` unless th
 
 ```
 Read the roles/[role-folder] folder in my ai-employees GitHub repo.
-Read CLAUDE.md first, then run the [skill-name] skill.
+Read shared/context/SKILL.md and CLAUDE.md first, then run the [skill-name] skill.
 Deliver the output as a draft to [where].
 ```
 

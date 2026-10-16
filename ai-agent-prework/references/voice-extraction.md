@@ -1,6 +1,6 @@
 # Voice Extraction Reference
 
-Read this file before building the foundational voice and tone skill in Part 2 of prework.
+Read this file before building the foundational voice and tone skill in Part 3 of prework.
 Follow the full process below. Do not skip dimensions.
 
 ---

@@ -33,11 +33,12 @@ Speak plainly. If you must use a word like "commit" or "main", explain it once: 
 
 Ask: "Which do you use, Claude or ChatGPT?" Note it. It changes the routine step.
 
-Confirm three things:
+Confirm four things:
 
 1. They have a GitHub repo called `ai-employees` that your session can see.
 2. You can save a file to main. Test it: save `roles/README.md` with one line, "One folder per AI employee." Ask them to confirm it shows on GitHub.
-3. Voice skill: if the employee talks to people outside the team, `shared/voice-and-tone/SKILL.md` exists. If not, run the steps in `ai-agent-prework/SKILL.md` Part 2 first. If the employee is internal only, use a short direct style and skip it.
+3. Context: `shared/context/SKILL.md` exists. It tells every employee who the person is and what the company does. If not, run `ai-agent-prework/SKILL.md` Part 2 now. It takes about ten minutes and the employee is only as good as this context.
+4. Voice skill: if the employee talks to people outside the team, `shared/voice-and-tone/SKILL.md` exists. If not, run `ai-agent-prework/SKILL.md` Part 3 first. If the employee is internal only, use a short direct style and skip it.
 
 If you cannot save to main (common in ChatGPT): switch to manual saves. For every file, give the exact path and the full text, then show them: open the repo, click Add file, Create new file, type the path, paste, click Commit changes. Say it once, then give one file at a time.
 

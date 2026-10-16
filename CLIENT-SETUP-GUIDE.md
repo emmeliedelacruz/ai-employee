@@ -1,5 +1,5 @@
 # How to Build Your First AI Employee
-### A step-by-step guide. About one hour. No code.
+### A step-by-step guide. About 90 minutes. No code.
 
 Read this once, then follow each step in order. You will end with an AI employee that owns one role in your business, runs on a schedule, and gets better every time you give it feedback.
 
@@ -20,6 +20,7 @@ Read this once, then follow each step in order. You will end with an AI employee
 ```
 ai-employees/
   CLAUDE.md                      shared rules for every employee
+  shared/context/                who you are and what your company does (built once)
   shared/voice-and-tone/         how you sound (built once)
   roles/
     legal-assistant/
@@ -70,15 +71,37 @@ You can also use the Code tab in the Claude desktop app. You do not need a termi
 
 ---
 
-## Step 3: Build Your Employee in Chat (30 minutes)
+## Step 3: Teach Your AI Who You Are (20 minutes)
+
+Your employees start every job knowing nothing about you. Fix that once and they all know.
+
+Start a chat or session with your repo selected and paste:
+
+```
+Let's set up my AI employees. Follow ai-agent-prework/SKILL.md at
+https://github.com/emmeliedelacruz/ai-employee, starting at Part 2.
+My repo is ai-employees. Save every change straight to the main version of my repo.
+```
+
+Your AI will:
+
+1. Ask for your website, bio, and anything that already describes your company. It reads them first, so you type less.
+2. Ask the gaps: your role and goals, how you like updates, who your customers are, what you sell, your priorities this quarter, who is on the team, and the words only you would know.
+3. Save it all to `shared/context/SKILL.md` and test that it can answer: who do I serve, what are my priorities, how do I like updates.
+4. If your employee talks to people outside your team, capture your voice from three to five of your own messages and save it to `shared/voice-and-tone/SKILL.md`.
+
+Write only what you would tell a new hire on day one. No passwords, no keys, no private client details. Keep the repo Private.
+
+---
+
+## Step 4: Build Your Employee in Chat (30 minutes)
 
 Start a new chat or session with your repo selected and paste this:
 
 ```
 Let's build an AI employee. Follow the instructions at
 https://github.com/emmeliedelacruz/ai-employee, starting with
-ai-agent-prework/SKILL.md if I have not set up my voice yet, otherwise
-ai-agent-workshop/SKILL.md. My repo is ai-employees. Save every change
+ai-agent-workshop/SKILL.md. My context file and voice skill are done. My repo is ai-employees. Save every change
 straight to the main version of my repo.
 ```
 
@@ -97,7 +120,7 @@ Give it as much context as you can. Context is what makes the employee good.
 
 ---
 
-## Step 4: Create the Routine (10 minutes)
+## Step 5: Create the Routine (10 minutes)
 
 The routine wakes your employee up on a schedule and sends it to work. It runs in the cloud. Your computer can be off.
 
@@ -129,7 +152,7 @@ Open the run to read what happened. A green status only means it started. It doe
 
 ---
 
-## Step 5: Train It for One Week
+## Step 6: Train It for One Week
 
 Your employee will make mistakes at first. Humans do too. Training is how it gets good.
 
@@ -141,7 +164,7 @@ Your employee will make mistakes at first. Humans do too. Training is how it get
 
 ---
 
-## Step 6: Four Rules
+## Step 7: Four Rules
 
 1. **Review daily for a week.** Then let it run.
 2. **Stagger your routines.** Do not run everything at 9 a.m. Spread them across the day. It saves usage and avoids busy times.
@@ -150,7 +173,7 @@ Your employee will make mistakes at first. Humans do too. Training is how it get
 
 ---
 
-## Step 7: Repeat
+## Step 8: Repeat
 
 One employee at a time. Once the first one runs well for a week, add the next role or the next department. Each new employee is a new folder in the same repo.
 
