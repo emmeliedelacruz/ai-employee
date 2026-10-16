@@ -12,9 +12,92 @@ You set it up by chatting with your AI. The AI writes the files and saves them t
 
 ---
 
-## Fast Start
+## Watch The Tutorial (11 minutes)
 
-Open [CLIENT-SETUP-GUIDE.md](CLIENT-SETUP-GUIDE.md) and follow it in order. The whole path:
+[![Watch the tutorial: how to set up AI employees](video/thumbnail.jpg)](https://github.com/emmeliedelacruz/ai-employee/raw/main/video/tutorial.mp4)
+
+Click the image to play. It walks through the whole setup on screen, from making the repo to your first week of training.
+
+---
+
+## How To Use This Repo
+
+Do the steps in order. Each one takes you to the next.
+
+1. **Watch the tutorial** above so you know where you are going.
+2. **Pick your AI.** Claude gives you the full hands-off setup. ChatGPT works with two manual steps. See the comparison below.
+3. **Start.** Choose one of three ways:
+
+   **A. Paste a prompt (fastest).** Open Claude or ChatGPT with your repo connected and paste:
+
+   > Let's build an AI employee. Follow the instructions at https://github.com/emmeliedelacruz/ai-employee. Save every change straight to the main version of my repo.
+
+   **B. Upload the files.** If your AI cannot open links: on GitHub, open `ai-agent-prework/SKILL.md`, click the download icon at the top right of the file, and attach it to your chat. Type "Start the prework." When it finishes, do the same with `ai-agent-workshop/SKILL.md` and type "Start the workshop."
+
+   **C. Follow the guide yourself.** Open [CLIENT-SETUP-GUIDE.md](CLIENT-SETUP-GUIDE.md) and work through it, step by step. Use this if you want to see every click.
+
+4. **Answer your AI's questions.** It asks one or two at a time. Give it as much detail as you can. It writes every file for you.
+5. **Review the output every day for a week.** Give feedback in the same chat. Your AI updates the skill.
+6. **Repeat** for your next employee.
+
+### Which prompt for which moment
+
+| You are here | What to run |
+| --- | --- |
+| New to this, no repo yet | Start A or B, and your AI runs `ai-agent-prework/SKILL.md` first |
+| Repo, context, and voice are done | Start A or B with `ai-agent-workshop/SKILL.md` |
+| Adding a second employee | Start A or B with `ai-agent-workshop/SKILL.md`. Prework is already done |
+| Employee gave a wrong output | Tell your AI in the same chat what was wrong. It updates the skill |
+
+---
+
+## What You Will Have At The End
+
+```
+ai-employees/
+  CLAUDE.md                        shared rules for every employee
+  shared/
+    context/SKILL.md               who you are and what your company does
+    voice-and-tone/SKILL.md        how you sound
+  roles/
+    your-first-employee/
+      CLAUDE.md                    who they are, what they own, what they never do
+      reference/                   your SOPs, samples, and what good looks like
+      logs/                        optional record of what they did
+      .claude/skills/
+        your-first-skill/SKILL.md  one job, step by step
+```
+
+Plus a routine that runs it on a schedule. You never create these files yourself. Your AI does.
+
+---
+
+## Week One At A Glance
+
+| Day | You | Your employee |
+| --- | --- | --- |
+| 1 | Build it and run it once by hand | Delivers a draft |
+| 2 to 6 | Read each output. Say what was wrong and how to do it next time | The skill updates. The next run uses the new version |
+| 7 | Decide: ready to run on its own, or one more week | Runs the schedule |
+
+Do not skip the daily review. People set up an AI, skip the review, and decide AI does not work.
+
+---
+
+## Claude Or ChatGPT?
+
+| | Claude | ChatGPT |
+| --- | --- | --- |
+| Builds your employee in chat | Yes | Yes |
+| Saves files to GitHub for you | Yes (Claude Code in the cloud) | Partly. Ask it to write the file, then paste it into GitHub (30 seconds each) |
+| Runs on a schedule without your computer | Yes (Routines) | Yes (Scheduled tasks), but test that it can read your repo |
+| Best for | The full hands-off setup | People already working in ChatGPT |
+
+If you are unsure, start with Claude. Plan requirements: Claude Pro or higher for Claude Code and Routines. A paid ChatGPT plan for scheduled tasks. Last checked October 2026. Menus move, so if a button has a different name, ask your AI where it went.
+
+---
+
+## Fast Start Timeline
 
 | Step | What you do | Time |
 | --- | --- | --- |
@@ -28,25 +111,26 @@ Open [CLIENT-SETUP-GUIDE.md](CLIENT-SETUP-GUIDE.md) and follow it in order. The 
 
 ---
 
-## Claude or ChatGPT?
+## What Is In This Repo
 
-| | Claude | ChatGPT |
+| File or folder | What it is | When you use it |
 | --- | --- | --- |
-| Builds your employee in chat | Yes | Yes |
-| Saves files to GitHub for you | Yes (Claude Code in the cloud) | Partly. Ask it to write the file, then paste it into GitHub (30 seconds each) |
-| Runs on a schedule without your computer | Yes (Routines) | Yes (Scheduled tasks), but test that it can read your repo |
-| Best for | The full hands-off setup | People already working in ChatGPT |
-
-If you are unsure, start with Claude. Plan requirements: Claude Pro or higher for Claude Code and Routines. A paid ChatGPT plan for scheduled tasks. Last checked October 2026. Menus move, so if a button has a different name, ask your AI where it went.
+| [CLIENT-SETUP-GUIDE.md](CLIENT-SETUP-GUIDE.md) | The step-by-step guide with exact clicks | Start here if you want to follow along yourself |
+| `ai-agent-prework/` | Your AI connects your repo, learns who you and your company are, and captures your voice | Once, before your first employee. About 40 minutes |
+| `ai-agent-workshop/` | The guided build. Your AI interviews you, writes the employee, builds and tests the first skill, and sets up the routine | Every time you build an employee |
+| `templates/` | The exact files your AI creates in your repo | When you want to see what you are getting |
+| `video/` | The tutorial | Watch it first |
 
 ---
 
-## What Is In This Repo
+## Words In Plain English
 
-- **CLIENT-SETUP-GUIDE.md**: the step-by-step guide. Start here.
-- **ai-agent-prework/**: connects your repo, teaches your AI who you are and what your company does, and captures your voice so every output sounds like you. About 40 minutes. The voice step is optional for internal-only employees.
-- **ai-agent-workshop/**: the guided build. Your AI interviews you, writes the employee, builds and tests the first skill, and sets up the routine.
-- **templates/**: the exact files your AI creates in your repo, so you can see what you are getting.
+- **Repo**: a folder on GitHub. Think of it as a Google Drive for your skills.
+- **Main**: the live version of your repo. Skills only work for your routine once they are saved to main.
+- **Skill**: one job, written down step by step, as a file your employee follows.
+- **Routine**: a schedule that wakes your employee up and sends it to work.
+- **Connector**: a link from your AI to a tool like Gmail or Slack. Give each employee only the ones it needs.
+- **Shadow mode**: your first week. Your employee drafts. You approve. Nothing goes out on its own.
 
 ---
 
@@ -58,15 +142,7 @@ Non-technical founders, operators, and service providers who want to stop doing 
 
 ## Instructions For The AI
 
-If you are Claude or ChatGPT reading this repo because a person pasted its link: run `ai-agent-prework/SKILL.md` first if they have no repo, no context file at `shared/context/SKILL.md`, or no voice skill yet. Otherwise run `ai-agent-workshop/SKILL.md`. Speak plainly. Do the file work for them. Ask one or two questions at a time.
-
----
-
-## How To Start
-
-Paste this into Claude or ChatGPT:
-
-> Let's build an AI employee. Follow the instructions at https://github.com/emmeliedelacruz/ai-employee. Save every change straight to the main version of my repo.
+If you are Claude or ChatGPT reading this repo because a person pasted its link: run `ai-agent-prework/SKILL.md` first if they have no repo, no context file at `shared/context/SKILL.md`, or no voice skill yet. Otherwise run `ai-agent-workshop/SKILL.md`. Speak plainly. Do the file work for them. Save every change straight to main. Ask one or two questions at a time.
 
 ---
 
