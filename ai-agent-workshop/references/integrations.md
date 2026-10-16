@@ -33,8 +33,11 @@ Steps:
 4. "If it is listed, click Connect, sign in, and authorize the access it asks for."
 5. "Come back here and confirm it is connected."
 
-Google Drive is connected during prework. Connect the rest here as each one comes up in the
-build. If a tool is in the directory, this is the whole job. Move on.
+Connect each tool here as it comes up in the build. Connect only what this employee needs. If a
+tool is in the directory, this is the whole job. Move on.
+
+In ChatGPT, open Settings and look for Connectors or Apps. The names change, so if you do not see
+them, ask ChatGPT where to connect the tool.
 
 ---
 

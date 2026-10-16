@@ -1,7 +1,7 @@
 # Foundational Skills Reference
 
 This file contains instructions for building foundational skills that apply to all AI employees.
-Read this file before running Phase 2 of the workshop.
+Read this file before building the voice and tone skill. Prework Part 2 uses it.
 
 ---
 

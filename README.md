@@ -1,32 +1,71 @@
 # AI Employee Workshop
 
-A self-guided system for building your first AI employee inside Claude. Built for non-technical founders, operators, and service providers who want to remove themselves from repeatable work without hiring.
+Build your first AI employee in about an hour. No code. You need a free GitHub account and either Claude or ChatGPT.
 
-By the end of this workshop you will have a working AI employee inside Claude that owns a role in your business from start to finish, pulls its own information from Google Drive, makes decisions within rules you set, and brings you only the outputs that need your approval.
+An AI employee is three things:
+
+1. **A folder in your GitHub repo** that holds its instructions: who it is, what it owns, what it must never do.
+2. **Skills**: the step-by-step "how" for each job it does, written as files in that folder.
+3. **A routine**: a schedule that wakes it up and sends it to work. Daily, weekly, whenever you decide.
+
+You set it up by chatting with your AI. The AI writes the files and saves them to GitHub for you. Then you train it with a week of feedback, and it gets better every time you correct it.
+
+---
+
+## Fast Start
+
+Open [CLIENT-SETUP-GUIDE.md](CLIENT-SETUP-GUIDE.md) and follow it in order. The whole path:
+
+| Step | What you do | Time |
+| --- | --- | --- |
+| 1 | Make a GitHub account and an empty repo called `ai-employees` | 10 min |
+| 2 | Connect the repo to Claude or ChatGPT | 10 min |
+| 3 | Chat with your AI. It interviews you and builds your employee and its first skill | 30 min |
+| 4 | Create the routine so it runs on a schedule | 10 min |
+| 5 | Give feedback for one week. Your AI updates the skills for you | 5 min a day |
+| 6 | Repeat for your next employee | |
+
+---
+
+## Claude or ChatGPT?
+
+| | Claude | ChatGPT |
+| --- | --- | --- |
+| Builds your employee in chat | Yes | Yes |
+| Saves files to GitHub for you | Yes (Claude Code in the cloud) | Partly. Ask it to write the file, then paste it into GitHub (30 seconds each) |
+| Runs on a schedule without your computer | Yes (Routines) | Yes (Scheduled tasks), but test that it can read your repo |
+| Best for | The full hands-off setup | People already working in ChatGPT |
+
+If you are unsure, start with Claude. Plan requirements: Claude Pro or higher for Claude Code and Routines. A paid ChatGPT plan for scheduled tasks. Last checked October 2026. Menus move, so if a button has a different name, ask your AI where it went.
 
 ---
 
 ## What Is In This Repo
 
-### ai-agent-prework
-Complete this before the workshop. Connects Google Drive to Claude and captures your voice and tone so every output your AI employee produces sounds like you. Takes 30 minutes.
-
-### ai-agent-workshop
-The full guided workshop. Walks you through defining your AI employee, wiring their tools, building and testing their skills, and launching them in shadow mode. Takes one focused session.
+- **CLIENT-SETUP-GUIDE.md**: the step-by-step guide. Start here.
+- **ai-agent-prework/**: connects your repo and captures your voice so every output sounds like you. 30 minutes, optional for internal-only employees.
+- **ai-agent-workshop/**: the guided build. Your AI interviews you, writes the employee, builds and tests the first skill, and sets up the routine.
+- **templates/**: the exact files your AI creates in your repo, so you can see what you are getting.
 
 ---
 
 ## Who This Is For
 
-This workshop is built for non-technical operators. You do not need to write code or understand how AI works under the hood. You need to know your business, know the role you want to fill, and be willing to spend one session building it properly.
-
-It works for any role that involves repeatable decisions, repeatable communication, or repeatable processes. Client onboarding, content operations, reporting, inbox management, project coordination, and similar functions are the clearest fits.
+Non-technical founders, operators, and service providers who want to stop doing repeatable work. You need to know your business and the role you would hire for tomorrow. Client onboarding, content operations, reporting, inbox management, legal and contract review, and project coordination are the clearest fits.
 
 ---
 
-## How to Use This
+## Instructions For The AI
 
-1. Copy and paste this into Claude: Let's build an ai employee [https://github.com/emmeliedelacruz/ai-employee](https://github.com/emmeliedelacruz/ai-employee)
+If you are Claude or ChatGPT reading this repo because a person pasted its link: run `ai-agent-prework/SKILL.md` first if they have no repo or voice skill yet. Otherwise run `ai-agent-workshop/SKILL.md`. Speak plainly. Do the file work for them. Ask one or two questions at a time.
+
+---
+
+## How To Start
+
+Paste this into Claude or ChatGPT:
+
+> Let's build an AI employee. Follow the instructions at https://github.com/emmeliedelacruz/ai-employee. Save every change straight to the main version of my repo.
 
 ---
 
@@ -38,4 +77,3 @@ Built by Emmelie De La Cruz. Head of Growth at Bubble.io. Founder of VILLA, an A
 
 admin@agencyvilla.com
 [https://linkedin.com/in/emmeliedelacruz](https://linkedin.com/in/emmeliedelacruz)
-

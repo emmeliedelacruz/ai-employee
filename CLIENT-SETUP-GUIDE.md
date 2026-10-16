@@ -1,109 +1,191 @@
 # How to Build Your First AI Employee
-### A Setup Guide for Workshop Attendees
+### A step-by-step guide. About one hour. No code.
 
-This guide walks you through everything you need to do before and during the workshop. Read it once before you start. Then follow each step in order.
-
-You will end the workshop with a working AI employee inside Claude that handles one role in your business from start to finish.
+Read this once, then follow each step in order. You will end with an AI employee that owns one role in your business, runs on a schedule, and gets better every time you give it feedback.
 
 ---
 
-## What You Need Before Starting
+## What You Need
 
-- A Claude account (claude.ai). You need a paid plan (Pro or higher) to use Projects and upload files.
-- A Google account with Google Drive. This is how your AI employee pulls your files automatically.
-- A scheduling tool, if any of your employee's tasks repeat on a schedule. A Claude Project cannot trigger itself, so recurring runs need either Claude Cowork (the /schedule command in the Claude Desktop app) or the Claude in Chrome extension (save a shortcut, then schedule it with the clock icon). You will install and set up one of these during the workshop's setup step. Both only run while your computer is awake and the app or browser is open.
+- A free GitHub account (github.com). This is where your employee's instructions and skills live. Think of it as a Google Drive for your skills.
+- Claude (Pro plan or higher) or ChatGPT (paid plan). Claude gives you the full hands-off setup. ChatGPT works with two manual steps, marked below.
+- One role you would hire for tomorrow. Not a task. A role.
 
 ---
 
-## How This Works: Projects Are Employees, Skills Are How You Train Them
+## How It Works
 
-Before you build anything, understand the model. It makes every step after this click.
-
-**A Claude Project is an AI employee.** The Project holds who that employee is (their instructions), what they can see (connected Google Drive folders), and how they do their work (their skills). You build one Project per employee.
-
-**Skills are how you train that employee.** Each skill is one process written down as a file — how to run your weekly report, how to onboard a client, how to answer a common email. An employee has several skills linked to it inside its Project. Add a skill and the employee can do a new thing. Update a skill and the employee gets better at it.
-
-**Skills are just files — `.md` or `.txt`.** A `.txt` file works if you only want to paste plain text in. A Markdown (`.md`) file is the better default, and here is where to keep it.
-
-**Keep your skills as `.md` files in Google Drive, then link them into the Project.** This gives you one source of truth: when a process changes, you update the file in Drive once and every employee linked to it is current — no forked copies drifting apart. It also makes your skills instantly shareable. Hand a new hire or a teammate the Drive folder and they have the exact same trained employee you do. Skills you build for yourself become skills your whole team can run.
-
-### One-Time Setup: Turn On Skill-Building in Every Chat
-
-Do this once. It tells Claude to help you build and maintain skills in every conversation, not only inside a Project.
-
-1. Go to claude.ai and click your profile icon in the top right.
-2. Click **Settings**, then **Profile**.
-3. Find the box that asks what personal preferences Claude should consider in its responses. Paste the text below into it and save.
+**One repo. One folder per employee.** Your repo is called `ai-employees`. Inside it, every employee gets a folder. Inside each folder go the skills that employee uses.
 
 ```
-Build and improve my skills as we work. My skills are reusable workflow files (.md or .txt) that live in my Claude Projects — each Project is one AI employee, and its skills are how that employee is trained. Whenever a repeatable process, a correction I had to apply, or a new learning comes up, proactively tell me — without waiting to be asked — whether it should be a new skill or an update to an existing one, and name which skill.
+ai-employees/
+  CLAUDE.md                      shared rules for every employee
+  shared/voice-and-tone/         how you sound (built once)
+  roles/
+    legal-assistant/
+      CLAUDE.md                  who they are, what they own, what they never do
+      reference/                 your SOPs, samples, and what good looks like
+      .claude/skills/
+        morning-brief/SKILL.md   one job, step by step
+        contract-review/SKILL.md
+    content-writer/
+      ...
+```
+
+You never create these files yourself. Your AI writes them and saves them to GitHub while you chat.
+
+**Why GitHub?** Your skills live in one place and work with any AI. Switch from ChatGPT to Claude later and nothing moves. Hand a teammate the repo and they have the same trained employee.
+
+**Prefer one repo per employee?** That works too. You get cleaner permissions and a separate history for each, and it is harder to manage. Start with one repo and split later if you need hard boundaries.
+
+---
+
+## Step 1: Make Your Repo (10 minutes)
+
+1. Go to github.com and click **Sign up**. Skip this if you have an account.
+2. Click the **+** in the top right, then **New repository**.
+3. Name it `ai-employees`.
+4. Choose **Private** unless you want the world to see your skills.
+5. Check **Add a README file**.
+6. Click **Create repository**.
+
+---
+
+## Step 2: Connect Your AI (10 minutes)
+
+### Claude
+
+1. Go to claude.ai/code and sign in.
+2. Click the prompt to connect GitHub and approve it.
+3. Install the Claude GitHub App on your `ai-employees` repo: github.com/apps/claude/installations/new. Private repos do not appear until you do this.
+4. Back at claude.ai/code, pick `ai-employees` in the repository selector under the text box.
+
+You can also use the Code tab in the Claude desktop app. You do not need a terminal.
+
+### ChatGPT
+
+1. In ChatGPT, open Settings and find Connectors (or Apps). Connect GitHub and pick your `ai-employees` repo.
+2. Menus move. If you do not see these names, ask ChatGPT: "Where do I connect GitHub?"
+3. Note: ChatGPT reads your repo well. Saving files into it is the part to check. If your ChatGPT cannot save, ask it to write each file, then paste it into GitHub yourself: open the repo, click **Add file**, then **Create new file**, type the path it gives you, paste, and click **Commit changes**.
+
+---
+
+## Step 3: Build Your Employee in Chat (30 minutes)
+
+Start a new chat or session with your repo selected and paste this:
+
+```
+Let's build an AI employee. Follow the instructions at
+https://github.com/emmeliedelacruz/ai-employee, starting with
+ai-agent-prework/SKILL.md if I have not set up my voice yet, otherwise
+ai-agent-workshop/SKILL.md. My repo is ai-employees. Save every change
+straight to the main version of my repo.
+```
+
+If your AI cannot open the link, download `ai-agent-workshop/SKILL.md`, attach it to the chat, and type "Start the workshop."
+
+Your AI will:
+
+1. Ask who you would hire and what they own, what they decide alone, what needs your approval, and what they must never do.
+2. Write the employee's folder and instructions.
+3. Ask for your SOPs, sample outputs, and what good looks like, then save them.
+4. Build the first skill by showing you real output. You react until it is right. Then it writes the skill.
+
+Give it as much context as you can. Context is what makes the employee good.
+
+**If a file lands on a branch called `claude/...` instead of `main`:** tell your AI "merge that into main." Skills only work for the routine once they are on main.
+
+---
+
+## Step 4: Create the Routine (10 minutes)
+
+The routine wakes your employee up on a schedule and sends it to work. It runs in the cloud. Your computer can be off.
+
+### Claude
+
+1. Go to claude.ai/code/routines and click **New routine**.
+2. **Name**: the employee, for example `Legal Assistant`.
+3. **Prompt**: point it at the folder. Example:
+   ```
+   You are the Legal Assistant. Read roles/legal-assistant/CLAUDE.md,
+   then run the skills in roles/legal-assistant/.claude/skills/.
+   Save anything you update to main.
+   ```
+4. **Repository**: `ai-employees`.
+5. **Environment**: leave **Default**.
+6. **Trigger**: pick Schedule. Choose a time a few minutes past the hour, like 8:07, because runs scheduled exactly on the hour can start late. The shortest allowed gap is one hour.
+7. **Connectors**: Claude includes all of yours by default. Remove every one this employee does not need.
+8. Click **Create**, then **Run now** to test.
+
+Open the run to read what happened. A green status only means it started. It does not mean the job was right.
+
+### ChatGPT
+
+1. In ChatGPT, open **Scheduled** and create a task, or ask ChatGPT to create one for you.
+2. Prompt: `Read the roles/legal-assistant folder in my ai-employees GitHub repo, then run its skills.`
+3. Set the schedule (daily, weekly, or a custom time) and connect only the tools this employee needs.
+4. Test the prompt in a normal chat first, then run the task once by hand.
+5. Unattended tasks that write to other tools fail more often than manual runs. Keep your first employee read and draft only, and watch the first runs.
+
+---
+
+## Step 5: Train It for One Week
+
+Your employee will make mistakes at first. Humans do too. Training is how it gets good.
+
+1. **Review the output every day for at least a week** before you let it run on autopilot. People set up an AI, skip this step, and decide AI does not work.
+2. **Give feedback in the same chat**, like you would to a person. Say what was wrong, how it should have been done, and what to do next time.
+3. **Your AI updates the skill for you.** The next run uses the latest version. Do not fix the output by hand and move on. If you fix it by hand, the mistake comes back.
+4. For feedback with a lot of detail, comment on the output in the Google Doc, then tell your AI to read the comments, fix them, and learn from them.
+5. If you are not sure what to say, ask your AI: "What do you need from me to get this right?" AI is good at telling you how to train it.
+
+---
+
+## Step 6: Four Rules
+
+1. **Review daily for a week.** Then let it run.
+2. **Stagger your routines.** Do not run everything at 9 a.m. Spread them across the day. It saves usage and avoids busy times.
+3. **Let AI write the skills.** AI is good at giving itself instructions. If you are unsure, chat with it and ask it to make the skill.
+4. **Give each employee only what it needs.** Routines act as you. Give each one only the repo and the connectors it needs, so it does not take unnecessary actions or get confused.
+
+---
+
+## Step 7: Repeat
+
+One employee at a time. Once the first one runs well for a week, add the next role or the next department. Each new employee is a new folder in the same repo.
+
+---
+
+## One-Time Setting: Turn On Skill-Building in Every Chat
+
+Paste this into Claude (profile icon, Settings, Profile, personal preferences) or ChatGPT (Settings, Personalization, custom instructions). Your AI will then flag every repeatable process worth turning into a skill.
+
+```
+Build and improve my skills as we work. My skills are reusable workflow files (.md) that live in my GitHub repo ai-employees. Each folder under roles/ is one AI employee and its skills are how that employee is trained. Whenever a repeatable process, a correction I had to apply, or a new learning comes up, proactively tell me, without waiting to be asked, whether it should be a new skill or an update to an existing one, and name which skill.
 
 When creating or updating a skill, always:
-1. Name + trigger: a clear name and a one-line "when to use this."
-2. New vs. update: state whether it's a new skill or an update to a specific named skill.
-3. Structure: Purpose / When to use, then Steps, then Gotchas & learnings, then Output format.
+1. Name and trigger: a clear name and a one-line "when to use this."
+2. New or update: say whether it is a new skill or an update to a named skill.
+3. Structure: Purpose and when to use, then Steps, then Gotchas and learnings, then Output format.
 4. Changelog: note the date and what changed at the top.
-5. Confirm first: show me the draft and get my sign-off before finalizing.
-6. One canonical copy: keep a single source of truth (I keep mine as .md files in Google Drive) and tell me exactly where it lives so versions don't fork.
+5. Confirm first: show me the draft and get my sign-off before saving.
+6. One copy: keep a single source of truth in my GitHub repo and tell me the exact path.
 
-Keep skills concise and copy-paste ready. Fold in real learnings from our sessions, not generic advice.
+Keep skills short and copy-paste ready. Use real learnings from our sessions, not generic advice.
 ```
 
-From now on, whenever you and Claude land on a process worth keeping, Claude flags it and offers to turn it into a skill in this format. That is how your employees get smarter over time.
-
 ---
 
-## Step 1: Complete the Prework (Do This Before the Workshop)
+## If Something Goes Wrong
 
-The prework has two jobs: connecting Google Drive to Claude and capturing your voice.
+| What you see | Fix |
+| --- | --- |
+| Your repo does not appear in Claude | Install the Claude GitHub App on it: github.com/apps/claude/installations/new |
+| Files went to a `claude/...` branch | Tell your AI to merge it into main |
+| The routine ran but did the wrong thing | Open the run, read what happened, then give feedback in your build chat |
+| The routine did nothing | Open the run. Check the repo is selected and the prompt names the right folder |
+| A scheduled ChatGPT task did not save anything | Keep it read-only for now. Paste updates into GitHub by hand |
 
-**To start:**
+Claude and ChatGPT will help you troubleshoot. Tell it exactly what you see on screen.
 
-1. Go to claude.ai and start a new conversation.
-2. Upload the file called `ai-agent-prework/SKILL.md` from this folder using the paperclip icon.
-3. Type: "Start the prework."
-4. Claude will guide you through the rest. Follow every step it gives you.
-
-Do not move to Step 2 until Claude confirms both tasks are complete.
-
----
-
-## Step 2: Run the Workshop
-
-Once prework is done, you are ready to build your AI employee. The workshop opens with a short setup step (about 15 minutes) where you confirm your prework and install the scheduling tool you will use for any recurring work. Then it moves into the four phases.
-
-**To start:**
-
-1. Go to claude.ai and start a new conversation.
-2. Upload the file called `ai-agent-workshop/SKILL.md` from this folder using the paperclip icon.
-3. Type: "Start the workshop."
-4. Claude will guide you through building your AI employee step by step.
-
-The workshop covers four phases:
-
-- **Phase 1:** Define who your AI employee is and what they own
-- **Phase 2:** Connect the tools they need to do their job
-- **Phase 3:** Build and test the skills that teach them your processes. You will see the real output first and refine it until you are happy. Only then does Claude write the final skill file. If a task repeats on a schedule, this is where you set up how it runs.
-- **Phase 4:** Set them up in shadow mode so you can review their work before anything goes out
-
-The only thing you need to bring is a clear answer to this question: if you could hire one person tomorrow to take something completely off your plate, what role would that be?
-
----
-
-## Step 3: Shadow Mode (After the Workshop)
-
-For the first seven days, your AI employee shows you their work before anything goes out. You review and approve. You do not do the work yourself.
-
-Every time you send a correction, add it to the Project Instructions as a permanent rule. If it happened once, it will happen again. Making it a rule prevents that.
-
-After seven days of consistent, accurate output, your employee operates with minimal oversight.
-
-If your employee has recurring work, keep triggering those runs yourself during shadow mode so you see the first several before they run on their own. Once a task is proven, let the schedule you set up in Phase 3 take over. Remember that Claude Cowork scheduled tasks only run while your computer is awake and the Claude Desktop app is open.
-
----
-
-## Questions
-
-If you get stuck at any point during prework or the workshop, Claude will help you troubleshoot. Tell it exactly what you see on your screen and it will walk you through it.
-
-For anything else or to hire me to build it for you, reach out at admin@agencyvilla.com.
+For anything else, or to hire me to build it for you, reach out at admin@agencyvilla.com.

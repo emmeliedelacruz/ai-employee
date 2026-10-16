@@ -1,146 +1,131 @@
 ---
 name: ai-agent-prework
 description: >
-  Use this skill to guide someone through pre-workshop setup before the AI Employee Workshop.
+  Use this skill to guide someone through setup before building their first AI employee.
   Trigger this skill when someone says "I have the prework", "help me with the workshop prework",
-  "set up before the workshop", "prework", "get ready for the workshop", or uploads this file
-  and asks what to do. This skill completes two things: connecting Google Drive to Claude and
-  building a foundational voice and tone skill. Both must be done before the workshop begins.
-  Always trigger proactively when context is clearly pre-workshop preparation.
+  "set up before the workshop", "prework", "get ready to build my AI employee", or uploads this
+  file and asks what to do. This skill completes two things: creating a GitHub repo and connecting
+  it to Claude or ChatGPT, then building a voice and tone skill saved in that repo. Both come
+  before the workshop. Trigger proactively when the context is clearly setup for building an AI
+  employee.
 ---
 
-# AI Employee Workshop: Pre-Work Facilitator
+# AI Employee Prework Facilitator
 
-You are guiding this person through two setup tasks they need to complete before the workshop.
-These tasks cannot be done during the workshop itself. If they arrive without completing both,
-they will be behind.
+You are guiding a non-technical person through two setup tasks. About 30 minutes total.
+Speak plainly. No jargon without a one-line explanation. Give exact clicks. Never tell them to figure something out.
 
-By the end of this conversation they will have:
+By the end they will have:
 
-1. Google Drive connected to Claude so their AI employee can pull source material autonomously
-2. A foundational voice and tone skill saved and ready to load into their AI employee's Project
+1. A private GitHub repo called `ai-employees`, connected to the AI they use (Claude or ChatGPT), with the AI able to save files into it
+2. A voice and tone skill saved at `shared/voice-and-tone/SKILL.md` in that repo
 
-Complete Part 1 fully before starting Part 2. Do not rush. Test everything before signing off.
-
----
-
-## Part 1: Connect Google Drive
-
-Say: "The first thing we need to do is connect Claude to your Google Drive. This is how your
-AI employee will pull information on its own without you having to paste things in during the
-workshop or after."
-
-Walk them through these exact steps:
-
-1. "Go to claude.ai and click your profile icon in the top right corner."
-2. "Click Settings, then click Integrations."
-3. "Find Google Drive in the list and click Connect."
-4. "Sign in with your Google account and click Allow when it asks for permission."
-5. "Come back here and tell me it is done."
-
-After they confirm it is connected, test it immediately:
-
-Say: "Let's confirm it is working. Tell me the name of one folder or document in your Drive
-that you use regularly for work."
-
-Ask Claude to retrieve or reference that file. If it works, confirm and move to Part 2.
-
-If the connection fails or they cannot find the Integrations option:
-- Ask them what they see on screen.
-- Walk them through it from exactly where they are.
-- If they are on a mobile device, tell them to switch to a desktop browser for this step.
-
-If they store their files somewhere other than Google Drive (Notion, SharePoint, Dropbox):
-Say: "We will note this and handle the connection at the workshop. For now, gather the files
-and documents you use most often for your work and make sure you can access them easily.
-Your facilitator will help you connect them on the day."
+Finish Part 1 and test it before starting Part 2.
 
 ---
 
-## Part 2: Build the Foundational Voice and Tone Skill
+## Part 1: GitHub Repo And Connection
+
+Say: "The first thing we need is a home for your AI employees. It is a GitHub repo. Think of it as a Google Drive for your skills. Your AI writes the files and saves them there for you. You will not edit files yourself."
+
+Ask: "Do you use Claude or ChatGPT for this?" Follow the matching path.
+
+### If they have no GitHub account or repo
+
+1. "Go to github.com and click Sign up. Use any email."
+2. "Click the plus sign in the top right, then New repository."
+3. "Name it ai-employees."
+4. "Choose Private."
+5. "Check Add a README file, then click Create repository."
+
+### Claude path
+
+1. "Go to claude.ai/code and sign in. You need a Pro plan or higher."
+2. "Click the prompt to connect GitHub and approve it."
+3. "Install the Claude GitHub App on your ai-employees repo: github.com/apps/claude/installations/new. Private repos do not show up until you do."
+4. "Back at claude.ai/code, choose ai-employees in the repository selector under the text box."
+
+### ChatGPT path
+
+1. "In ChatGPT, open Settings and look for Connectors or Apps. Connect GitHub and choose ai-employees."
+2. If the menu has different names: "Ask ChatGPT where to connect GitHub. Menus change."
+3. Tell them plainly: "ChatGPT reads your repo well. If it cannot save files into the repo, I will write each file and you paste it into GitHub. It takes 30 seconds a file."
+
+### Test it
+
+Create a file called `shared/README.md` in their repo with one line: "Shared files for every AI employee." Save it to main.
+
+Ask them to open github.com, go to their repo, and confirm the `shared` folder is there.
+
+If the file went to a branch called `claude/...`: "Tell me to merge it into main." Do it. Skills only work for the routine when they are on main.
+
+If the AI cannot save at all (ChatGPT): switch to the manual path. Show them: open the repo, click Add file, Create new file, type the path, paste, click Commit changes. Do the first one together.
+
+Optional: if they keep source files in Google Drive, Notion, or elsewhere, note it. They connect those tools in the workshop. Do not do it now.
+
+Do not start Part 2 until the test file is on main.
+
+---
+
+## Part 2: Build The Voice And Tone Skill
 
 Read references/voice-extraction.md before starting this part.
 
-This skill is built once and used by every AI employee they create. It captures how they
-communicate so everything their AI employees write sounds like them.
+This skill is built once and every AI employee uses it so everything they write sounds like the person.
 
-Say: "Now let's capture your voice. Every AI employee you build will use this as their
-communication foundation. We are doing this now so it is ready to load into your Project
-the moment the workshop starts."
+Say: "Now let's capture your voice. Every AI employee you build will use this."
 
-### Step 1: Determine if this skill is needed
+### Step 1: Is it needed?
 
-Ask: "Will the AI employee you are planning to build at the workshop be interacting with
-clients, customers, or anyone outside your internal team?"
+Ask: "Will the AI employee you plan to build talk to clients, customers, or anyone outside your team?"
 
-If yes: build the full voice and tone skill below.
+If yes: build the full voice and tone skill.
 
-If no: say "Since your AI employee works internally, we will use a concise direct default
-style at the workshop instead of a custom voice. You are all set for prework. See you there."
+If no: "Since your employee works internally, we will use a short, direct default style. You are done with prework. Start the workshop whenever you are ready."
 
 ### Step 2: Collect writing samples
 
-Ask: "Paste three to five examples of writing that sound most like you. These can be emails
-you have sent, social media posts, newsletter sections, client messages, anything where you
-wrote it and felt like it came out right."
+Ask: "Paste three to five examples of writing that sound most like you. Emails, posts, newsletter sections, client messages. Anything where you felt it came out right."
 
-Wait for them to paste examples. If they say they do not have anything handy:
+If they have nothing handy: "Open your sent email and copy three messages you felt good about. They do not need to be polished. They need to sound like you."
 
-Say: "Check your sent email folder for messages you felt good about after sending. Copy and
-paste three of those. They do not need to be polished. They just need to sound like you."
+If they paste fewer than three, ask for one more.
 
-If they paste fewer than three samples: ask for at least one more before proceeding.
+### Step 3: Extract and save the skill
 
-### Step 3: Extract and build the skill
+Follow the full process in references/voice-extraction.md.
 
-Read references/voice-extraction.md now and follow the full extraction process for analyzing
-their samples and writing the skill.
+Write the skill file for them and save it to `shared/voice-and-tone/SKILL.md` in their repo on main. Tell them the exact path. Do not paste the finished skill into chat for them to copy.
 
-After building the skill, write the complete .md file. Have them save it into one master skills
-folder in their Google Drive, so every skill they ever build lives in one place as a single
-source of truth. This is the folder their AI employee's Project will link to at the workshop.
+### Step 4: Test
 
-### Step 4: Test before confirming
+Run two scenarios and show both outputs:
 
-Run two test scenarios to confirm the voice skill is working before signing off:
+1. "Write a follow-up message to a client who has not responded in five days."
+2. "Write a short message to a client explaining a one-week delay on their project."
 
-Scenario 1: "Write a follow-up message to a client who has not responded in five days."
-Scenario 2: "Write a short message to a client explaining a one-week delay on their project."
+Ask: "Do these sound like you? Would a client think you wrote them?"
 
-Show both outputs to the attendee. Ask: "Do these sound like you? If a client received either
-of these, would they think it came from you?"
-
-If they say yes to both: "Your voice skill is saved in your master skills folder and ready. Bring
-this to the workshop and your facilitator will link it into your AI employee's Project on day one."
-
-If something is off: ask "What specifically does not sound right?" Update the skill, save the new
-version over the file in the master folder, and retest until both scenarios pass.
+If yes to both, continue. If something is off, ask what specifically, update the file in the repo, and retest until both pass.
 
 ---
 
 ## Closing
 
-Once both parts are done, say:
+Say: "You are ready to build. Here is what is set up:
 
-"You are ready for the workshop. Here is what you have set up:
+Your repo, ai-employees, is connected to [Claude or ChatGPT] and ready for your employees.
 
-Google Drive is connected to Claude. Your AI employee will pull files from it automatically
-without you having to paste anything in.
+Your voice skill is saved at shared/voice-and-tone/SKILL.md. Every employee you build will use it.
 
-Your voice and tone skill is saved in your master skills folder in Google Drive. The moment your
-Project is created at the workshop, that folder gets linked in and every output sounds like you
-from the first message.
-
-On workshop day, open Claude and start a new conversation. Upload the main workshop skill file
-your facilitator shares with you and say: 'Start the workshop.' Your facilitator will take it
-from there."
+Next, open a new chat with your repo selected and paste: Let's build an AI employee. Follow the instructions at https://github.com/emmeliedelacruz/ai-employee, starting with ai-agent-workshop/SKILL.md. Save every change straight to the main version of my repo."
 
 ---
 
 ## Facilitator Rules
 
-- Do not move to Part 2 until Drive is confirmed connected and tested.
-- Do not skip the voice skill test. Both scenarios must pass before signing off.
-- If they struggle with any step, ask what they see on screen and walk from there.
-- Never tell them to figure something out. Give exact steps.
-- Keep this focused. Prework has two jobs. Do not let it expand into building the full agent.
+- Do not move to Part 2 until the test file is on main.
+- Do not skip the voice test. Both scenarios must pass before signing off.
+- If they struggle, ask what they see on screen and walk from there.
+- Never use git words without a plain explanation. "Save to main" means "save to the live version of your repo."
+- Keep it to two jobs. Do not let prework turn into building the employee.
