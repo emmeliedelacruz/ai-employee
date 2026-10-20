@@ -89,7 +89,7 @@ Do not skip the daily review. People set up an AI, skip the review, and decide A
 | | Claude | ChatGPT |
 | --- | --- | --- |
 | Builds your employee in chat | Yes | Yes |
-| Saves files to GitHub for you | Yes (Claude Code in the cloud) | Partly. Ask it to write the file, then paste it into GitHub (30 seconds each) |
+| Saves files to GitHub for you | Yes (Claude Code in the cloud) | Partly. You need to have the github plugin installed |
 | Runs on a schedule without your computer | Yes (Routines) | Yes (Scheduled tasks), but test that it can read your repo |
 | Best for | The full hands-off setup | People already working in ChatGPT |
 
@@ -103,7 +103,7 @@ If you are unsure, start with Claude. Plan requirements: Claude Pro or higher fo
 | --- | --- | --- |
 | 1 | Make a GitHub account and an empty repo called `ai-employees` | 10 min |
 | 2 | Connect the repo to Claude or ChatGPT | 10 min |
-| 3 | Tell your AI about you and your company, and capture your voice | 20 min |
+| 3 | Create a context file by telling your AI about you and your company, and capture your voice. | 20 min |
 | 4 | Chat with your AI. It interviews you and builds your employee and its first skill | 30 min |
 | 5 | Create the routine so it runs on a schedule | 10 min |
 | 6 | Give feedback for one week. Your AI updates the skills for you | 5 min a day |
