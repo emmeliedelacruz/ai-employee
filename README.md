@@ -22,7 +22,7 @@ Click the image to play. It walks through the whole setup on screen, from making
 
 ## How To Use This Repo
 
-**Drop this link into Claude or ChatGPT. Your AI does the rest.**
+**Drop this link into Claude Code or ChatGPT. Your AI does the rest.**
 
 ```
 https://github.com/emmeliedelacruz/ai-employee
