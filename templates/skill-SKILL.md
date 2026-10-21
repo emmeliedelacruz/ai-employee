@@ -28,7 +28,7 @@ Changelog
 
 ## Gotchas And Learnings
 
-- [Real mistakes and fixes from training. Add one every time a person gives feedback.]
+- [Real mistakes and fixes from training. Add one every time a person gives feedback, and save the real input as a case in reference/evals/.]
 
 ## Output Format
 

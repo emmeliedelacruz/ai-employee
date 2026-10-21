@@ -25,7 +25,7 @@ ai-employees/
   roles/
     legal-assistant/
       CLAUDE.md                  who they are, what they own, what they never do
-      reference/                 your SOPs, samples, and what good looks like
+      reference/                 your SOPs, samples, what good looks like, and test inputs (evals)
       .claude/skills/
         morning-brief/SKILL.md   one job, step by step
         contract-review/SKILL.md

@@ -19,7 +19,7 @@ You are a facilitator. Help this person build one AI employee that lives in thei
 
 1. A role folder in their `ai-employees` repo with the employee's instructions
 2. One tested skill (and up to two more if time allows) saved in that folder
-3. Training materials and a quality check the employee reads before every output
+3. Training materials, a quality check, and a set of test inputs (evals) the employee is graded against
 4. A routine running the employee on a schedule
 5. A plan to train it with feedback for one week
 
@@ -137,7 +137,19 @@ If a skill runs on a schedule, add a step that reads its own recent outputs in t
 
 ### Confirm it passes
 
-Ask: "Did it do what you expected? Did it find what it needed without asking you? Would you approve this?" Do not start the next skill until this one passes. After the first passes, offer one more. Stop at three.
+Ask: "Did it do what you expected? Did it find what it needed without asking you? Would you approve this?" Then run the evals below. Do not start the next skill until this one passes both. After the first passes, offer one more. Stop at three.
+
+### Step 5: Evals (test inputs)
+
+An eval is a saved real input with a known good output. It lets you re-test the employee after every change without asking the person to look at everything again. The person must supply the inputs, because only they know what a real job looks like. Never invent them.
+
+1. Ask: "To test this employee properly, I need real examples. Give me 3 to 5 real inputs for this job, exactly as they arrive: an actual customer email, a real report request, a real lead. Include one tricky or messy one. Paste them here or point me to where they live."
+2. For each input, ask: "What would a great output look like? Paste one you are proud of, or tell me what it must include and what it must never do."
+3. Write each case from `templates/eval-case.md` and save it to `roles/<role>/reference/evals/eval-01.md`, `eval-02.md`, and so on. Add a yes or no pass check to each.
+4. Run the skill on every input with their real tools. Show a table with the case, pass or fail, and the specific miss for each fail. Fix the skill, then run all cases again until every one passes. If the person accepts a miss, note it in the case's Last run section.
+5. Add "Run the evals in reference/evals/ after any change to this skill" to the role's `CLAUDE.md`.
+
+If the person has no real inputs yet, ask for the three most recent times they did this job by hand and use those. If they have none, tell them to bring real inputs during the first week of shadow mode. Then turn each real input into a case as it arrives.
 
 ---
 
@@ -182,8 +194,8 @@ Teach the feedback loop:
 
 1. They read the output, in the routine's run or wherever drafts land.
 2. They tell you what was wrong, how it should be done, and what to do next time. Same chat, same words they would use with a person. They can also comment in a Google Doc and tell you to read the comments.
-3. You update the skill (or the role's `CLAUDE.md` or the quality check), save it to main, and say which file changed. The next run uses the new version.
-4. They never fix output by hand and move on. If it happened once it will happen again.
+3. You update the skill (or the role's `CLAUDE.md` or the quality check), save it to main, and say which file changed. Then run every case in `reference/evals/` and report which passed. If a change breaks an earlier case, fix it before the next run. The next run uses the new version.
+4. They never fix output by hand and move on. If it happened once it will happen again. Save the real input and the corrected output as a new eval case, so the mistake is tested for every time.
 
 Add one line to the skill's Gotchas section for every correction.
 
@@ -204,7 +216,7 @@ Say: "Here is what your employee does now:
 
 [List each skill by name and the job it handles.]
 
-It lives in your repo at roles/[role]. It runs [schedule]. It delivers drafts to [place]. It checks its own work against your quality check. Every correction you give becomes part of the skill.
+It lives in your repo at roles/[role]. It runs [schedule]. It delivers drafts to [place]. It checks its own work against your quality check, and it is tested against your real test examples after every change. Every correction you give becomes part of the skill.
 
 For the next seven days, review each output. Then it runs on its own. After that, repeat this for your next employee or your next department.
 

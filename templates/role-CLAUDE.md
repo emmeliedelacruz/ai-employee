@@ -37,6 +37,7 @@ Read these before you work. They show you what good looks like.
 - `reference/sops/`: the procedures a new hire would get
 - `reference/samples/`: examples of near-perfect output
 - `reference/quality-check.md`: your checklist or scorecard. Check every output against it before you deliver.
+- `reference/evals/`: real test inputs with the expected output. Run every case after any change to a skill, and report which passed.
 
 # Voice And Tone
 

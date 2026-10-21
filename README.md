@@ -62,7 +62,7 @@ ai-employees/
   roles/
     your-first-employee/
       CLAUDE.md                    who they are, what they own, what they never do
-      reference/                   your SOPs, samples, and what good looks like
+      reference/                   your SOPs, samples, what good looks like, and test inputs (evals)
       logs/                        optional record of what they did
       .claude/skills/
         your-first-skill/SKILL.md  one job, step by step
